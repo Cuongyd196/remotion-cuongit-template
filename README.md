@@ -1,54 +1,55 @@
-# Remotion video
+# Remotion CuongIT Template
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.apng">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+This repository contains programmatic video templates built with [Remotion](https://www.remotion.dev/), designed for creating educational content for TikTok, YouTube Shorts, and Reels.
 
-Welcome to your Remotion project!
+## 📺 Demo Videos
 
-## Commands
+| 🐧 Linux File System | 🐳 Docker Introduction |
+|-------------------|---------------------|
+| [![Linux Demo](https://img.youtube.com/vi/VF75KP0kfEA/0.jpg)](https://youtube.com/shorts/VF75KP0kfEA?feature=share) | [![Docker Demo](https://img.youtube.com/vi/IWGXAhI2N3A/0.jpg)](https://youtube.com/shorts/IWGXAhI2N3A?feature=share) |
+| [Watch on YouTube](https://youtube.com/shorts/VF75KP0kfEA?feature=share) | [Watch on YouTube](https://youtube.com/shorts/IWGXAhI2N3A?feature=share) |
 
-**Install Dependencies**
+## 🚀 Features
+- **Code-driven animation**: Videos are generated using React and TypeScript.
+- **Tailwind CSS**: Styled for rapid and consistent design.
+- **TikTok/Shorts Optimized**: 9:16 aspect ratio (1080x1920) with "Safe Zone" padding.
+- **Components**: Reusable slides for educational technical content.
 
-```console
-npm i
-```
+## 🛠️ Compositions included
+1. **LinuxFileSystem**: A 50s vertical video explaining the Linux Directory Structure (`/`, `/bin`, `/home`, etc.).
+2. **DockerIntro**: A vertical video introducing Docker concepts.
 
-**Start Preview**
+## 📦 Installation
 
-```console
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Cuongyd196/remotion-cuongit-template.git
+   cd remotion-cuongit-template
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## 🎬 Usage
+
+**Start Preview Studio:**
+```bash
 npm run dev
 ```
 
-**Render video**
+**Render Video:**
+```bash
+# Render Linux video
+npx remotion render LinuxFileSystem
 
-```console
-npx remotion render
+# Render Docker video
+npx remotion render DockerIntro
 ```
 
-**Upgrade Remotion**
+## 👨‍💻 Author
+**CuongIT**
 
-```console
-npx remotion upgrade
-```
-
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+## 📝 License
+Licensed under the MIT License.
