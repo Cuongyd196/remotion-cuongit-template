@@ -3,7 +3,7 @@
 Repository này chứa các template video được lập trình bằng [Remotion](https://www.remotion.dev/), dùng để tạo nội dung giáo dục cho TikTok, YouTube Shorts và Reels.
 
 ## 👨‍💻 Tác giả
-**CuongIT**
+**[CuongIT](https://www.facebook.com/cuongit96/)**
 
 ## 🔔 Theo dõi để xem thêm video
 - [TikTok @cuongit96](https://www.tiktok.com/@cuongit96)
@@ -18,7 +18,7 @@ Repository này chứa các template video được lập trình bằng [Remotio
 
 ### 🎙️ Demo bản nâng cao (Tích hợp Voice)
 - [Xem trên Facebook](https://www.facebook.com/reel/1528707462238368)
-- [Xem trên Facebook](https://www.facebook.com/reel/3160624830807048)
+- [Xem trên TikTok](https://www.tiktok.com/@cuongit96/video/7599192554772516117)
 
 ## 🚀 Tính năng
 - **Tạo video bằng code**: Video được tạo bằng React và TypeScript.

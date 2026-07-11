@@ -3,7 +3,7 @@
 This repository contains programmatic video templates built with [Remotion](https://www.remotion.dev/), designed for creating educational content for TikTok, YouTube Shorts, and Reels.
 
 ## 👨‍💻 Author
-**CuongIT**
+**[CuongIT](https://www.facebook.com/cuongit96/)**
 
 ## 🔔 Follow for more videos
 - [TikTok @cuongit96](https://www.tiktok.com/@cuongit96)
@@ -18,7 +18,7 @@ This repository contains programmatic video templates built with [Remotion](http
 
 ### 🎙️ Advanced Demo (Voice Integration)
 - [Watch on Facebook](https://www.facebook.com/reel/1528707462238368)
-- [Watch on Facebook](https://www.facebook.com/reel/3160624830807048)
+- [Watch on TikTok](https://www.tiktok.com/@cuongit96/video/7599192554772516117)
 
 ## 🚀 Features
 - **Code-driven animation**: Videos are generated using React and TypeScript.
