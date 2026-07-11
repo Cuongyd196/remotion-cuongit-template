@@ -1,55 +1,67 @@
 # Remotion CuongIT Template
 
-This repository contains programmatic video templates built with [Remotion](https://www.remotion.dev/), designed for creating educational content for TikTok, YouTube Shorts, and Reels.
+Repository này chứa các template video được lập trình bằng [Remotion](https://www.remotion.dev/), dùng để tạo nội dung giáo dục cho TikTok, YouTube Shorts và Reels.
 
-## 📺 Demo Videos
+## 👨‍💻 Tác giả
+**CuongIT**
 
-| 🐧 Linux File System | 🐳 Docker Introduction |
+## 🔔 Theo dõi để xem thêm video
+- [TikTok @cuongit96](https://www.tiktok.com/@cuongit96)
+- [Facebook Reels](https://www.facebook.com/cuongit96/reels/)
+
+## 📺 Video Demo
+
+| 🐧 Hệ thống File Linux | 🐳 Giới thiệu Docker |
 |-------------------|---------------------|
 | [![Linux Demo](https://img.youtube.com/vi/VF75KP0kfEA/0.jpg)](https://youtube.com/shorts/VF75KP0kfEA?feature=share) | [![Docker Demo](https://img.youtube.com/vi/IWGXAhI2N3A/0.jpg)](https://youtube.com/shorts/IWGXAhI2N3A?feature=share) |
-| [Watch on YouTube](https://youtube.com/shorts/VF75KP0kfEA?feature=share) | [Watch on YouTube](https://youtube.com/shorts/IWGXAhI2N3A?feature=share) |
+| [Xem trên YouTube](https://youtube.com/shorts/VF75KP0kfEA?feature=share) | [Xem trên YouTube](https://youtube.com/shorts/IWGXAhI2N3A?feature=share) |
 
-## 🚀 Features
-- **Code-driven animation**: Videos are generated using React and TypeScript.
-- **Tailwind CSS**: Styled for rapid and consistent design.
-- **TikTok/Shorts Optimized**: 9:16 aspect ratio (1080x1920) with "Safe Zone" padding.
-- **Components**: Reusable slides for educational technical content.
+### 🎙️ Demo bản nâng cao (Tích hợp Voice)
+- [Xem trên Facebook](https://www.facebook.com/reel/1528707462238368)
+- [Xem trên Facebook](https://www.facebook.com/reel/3160624830807048)
 
-## 🛠️ Compositions included
-1. **LinuxFileSystem**: A 50s vertical video explaining the Linux Directory Structure (`/`, `/bin`, `/home`, etc.).
-2. **DockerIntro**: A vertical video introducing Docker concepts.
+## 🚀 Tính năng
+- **Tạo video bằng code**: Video được tạo bằng React và TypeScript.
+- **Tailwind CSS**: Tạo kiểu nhanh và nhất quán.
+- **Tối ưu cho TikTok/Shorts**: Tỷ lệ khung hình 9:16 (1080x1920) kèm khoảng đệm "Safe Zone".
+- **Components**: Các slide có thể tái sử dụng cho nội dung kỹ thuật giáo dục.
 
-## 📦 Installation
+## 🛠️ Các composition có sẵn
+1. **LinuxFileSystem**: Video dọc 50 giây giải thích cấu trúc thư mục Linux (`/`, `/bin`, `/home`, v.v.).
+2. **DockerIntro**: Video dọc giới thiệu các khái niệm về Docker.
 
-1. Clone the repository:
+## 📦 Cài đặt
+
+1. Clone repository:
    ```bash
    git clone https://github.com/Cuongyd196/remotion-cuongit-template.git
    cd remotion-cuongit-template
    ```
 
-2. Install dependencies:
+2. Cài đặt dependencies:
    ```bash
    npm install
    ```
 
-## 🎬 Usage
+## 🎬 Sử dụng
 
-**Start Preview Studio:**
+**Khởi động Preview Studio:**
 ```bash
 npm run dev
 ```
 
+![Remotion Studio](assets/studio.png)
+
 **Render Video:**
+
+Có thể render video trực tiếp trên giao diện Remotion Studio (nhấn nút "Render" ở composition muốn xuất), hoặc dùng command line:
 ```bash
-# Render Linux video
+# Render video Linux
 npx remotion render LinuxFileSystem
 
-# Render Docker video
+# Render video Docker
 npx remotion render DockerIntro
 ```
 
-## 👨‍💻 Author
-**CuongIT**
-
-## 📝 License
-Licensed under the MIT License.
+## 📝 Giấy phép
+Phát hành theo giấy phép MIT License.
