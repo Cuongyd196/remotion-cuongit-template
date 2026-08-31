@@ -1,0 +1,20 @@
+{
+  "topic": "DemoTopic",
+  "voice": "vi-VN-HoaiMyNeural",
+  "rate": "+10%",
+  "totalScenes": 1,
+  "totalDurationFrames": 144,
+  "totalDurationSec": 4.8,
+  "scenes": [
+    {
+      "id": "scene1_hook",
+      "text": "Xin chào các bạn, đây là video giải thích ngắn về chủ đề công nghệ.",
+      "audioPath": "audio/DemoTopic/scene1_hook.mp3",
+      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DemoTopic\\scene1_hook.mp3",
+      "sizeBytes": 26784,
+      "estimatedDurationSec": 4.46,
+      "durationInFrames": 144
+    }
+  ],
+  "generatedAt": "2026-08-31T09:04:47.003Z"
+}

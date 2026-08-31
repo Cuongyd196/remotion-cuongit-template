@@ -1,67 +1,187 @@
-# Remotion CuongIT Template
+# 🎬 Remotion AI Short Video Explainer Template
 
-Repository này chứa các template video được lập trình bằng [Remotion](https://www.remotion.dev/), dùng để tạo nội dung giáo dục cho TikTok, YouTube Shorts và Reels.
+<div align="center">
 
-## 👨‍💻 Tác giả
-**[CuongIT](https://www.facebook.com/cuongit96/)**
+[![Remotion](https://img.shields.io/badge/Remotion-v4.0+-blue?style=for-the-badge&logo=react)](https://www.remotion.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![Edge TTS](https://img.shields.io/badge/Edge_TTS-AI_Voiceover-brightgreen?style=for-the-badge)](https://www.npmjs.com/package/edge-tts-universal)
+[![AI Skills](https://img.shields.io/badge/AI_Skills-Antigravity_%7C_Claude-purple?style=for-the-badge)](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-## 🔔 Theo dõi để xem thêm video
-- [TikTok @cuongit96](https://www.tiktok.com/@cuongit96)
-- [Facebook Reels](https://www.facebook.com/cuongit96/reels/)
+**Framework tự động hóa tạo video ngắn 50–60s (9:16) giải thích công nghệ & lập trình với React, Remotion và AI Voiceover.**
 
-## 📺 Video Demo
+<br />
 
-| 🐧 Hệ thống File Linux | 🐳 Giới thiệu Docker |
-|-------------------|---------------------|
-| [![Linux Demo](https://img.youtube.com/vi/VF75KP0kfEA/0.jpg)](https://youtube.com/shorts/VF75KP0kfEA?feature=share) | [![Docker Demo](https://img.youtube.com/vi/IWGXAhI2N3A/0.jpg)](https://youtube.com/shorts/IWGXAhI2N3A?feature=share) |
-| [Xem trên YouTube](https://youtube.com/shorts/VF75KP0kfEA?feature=share) | [Xem trên YouTube](https://youtube.com/shorts/IWGXAhI2N3A?feature=share) |
+<a href="https://youtube.com/shorts/1bs4prcg-Fc?feature=share" target="_blank" rel="noopener noreferrer">
+  <img src="assets/demo-preview.png" alt="Demo Video Preview" width="340" style="border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" />
+</a>
 
-### 🎙️ Demo bản nâng cao (Tích hợp Voice)
-- [Xem trên Facebook](https://www.facebook.com/reel/1528707462238368)
-- [Xem trên TikTok](https://www.tiktok.com/@cuongit96/video/7599192554772516117)
+<p><em>Giao diện video dọc 9:16 chuẩn mobile với thương hiệu <strong>⚡ CƯỜNG IT</strong>, bố cục căn giữa và phụ đề 1 dòng</em></p>
 
-## 🚀 Tính năng
-- **Tạo video bằng code**: Video được tạo bằng React và TypeScript.
-- **Tailwind CSS**: Tạo kiểu nhanh và nhất quán.
-- **Tối ưu cho TikTok/Shorts**: Tỷ lệ khung hình 9:16 (1080x1920) kèm khoảng đệm "Safe Zone".
-- **Components**: Các slide có thể tái sử dụng cho nội dung kỹ thuật giáo dục.
+<p><a href="https://youtube.com/shorts/1bs4prcg-Fc?feature=share" target="_blank" rel="noopener noreferrer"><strong>▶️ Xem Video Demo trên YouTube Shorts</strong></a></p>
 
-## 🛠️ Các composition có sẵn
-1. **LinuxFileSystem**: Video dọc 50 giây giải thích cấu trúc thư mục Linux (`/`, `/bin`, `/home`, v.v.).
-2. **DockerIntro**: Video dọc giới thiệu các khái niệm về Docker.
+[✨ Tính năng nổi bật](#-tính-năng-nổi-bật) • [🚀 Cài đặt nhanh](#-cài-đặt-nhanh) • [🎙️ Cấu hình Voiceover](#️-cấu-hình-giọng-đọc-edge-tts) • [🤖 Tích hợp AI Skills](#-tích-hợp-ai-skills-antigravity--claude) • [🎬 Lệnh Render](#-xem-trước--render)
 
-## 📦 Cài đặt
+</div>
 
-1. Clone repository:
-   ```bash
-   git clone https://github.com/Cuongyd196/remotion-cuongit-template.git
-   cd remotion-cuongit-template
-   ```
+---
 
-2. Cài đặt dependencies:
-   ```bash
-   npm install
-   ```
+## 👨‍💻 Tác giả & Kênh nội dung
+- **Tác giả:** [Cường IT (Cuongyd196)](https://www.facebook.com/cuongit96/)
+- 🎵 **TikTok:** [@cuongit96](https://www.tiktok.com/@cuongit96)
+- 🌐 **Facebook Reels:** [Cường IT Reels](https://www.facebook.com/cuongit96/reels/)
 
-## 🎬 Sử dụng
 
-**Khởi động Preview Studio:**
+---
+
+## 🌟 Tính năng nổi bật
+
+- ⚡ **Lập trình Video bằng Code (Video-as-Code):** Dựng toàn bộ animation, transition, visual effects hoàn toàn bằng React và Remotion.
+- 🎙️ **Tích hợp Giọng đọc AI Miễn phí (`edge-tts-universal`):** Tự động sinh giọng đọc tự nhiên (tiếng Việt `vi-VN-HoaiMyNeural`, `vi-VN-NamMinhNeural`, tiếng Anh, tiếng Nhật, v.v.), không cần API key.
+- ⏱️ **Đồng bộ Frame Timing chính xác (Frame-Accurate):** Tự động phân tích thời lượng file âm thanh MP3 để tính số frame khớp 100% cho từng cảnh.
+- 📱 **Thiết kế Chuẩn Mobile 9:16 (1080x1920 @ 30fps):**
+  - **Khối nội dung trung tâm (Centered Layout):** Thẻ trích dẫn, so sánh, sơ đồ luồng luôn nằm ở trọng tâm mắt nhìn.
+  - **Thương hiệu Kênh (Brand Header):** Huy hiệu `⚡ CƯỜNG IT` cố định tại `top: 150px`, an toàn tuyệt đối, không bị che bởi thanh tìm kiếm.
+  - **Phụ đề 1 Dòng (Single-Line Chunked Subtitle):** Tự động ngắt 5–7 từ/lần, cỡ chữ lớn `text-4xl`, nhảy cụm từ mượt mà theo nhịp đọc.
+  - **Nhịp chuyển cảnh nhanh (Snappy Buffer):** Độ trễ giữa các cảnh chỉ `+3 frames` (~0.1s), giữ nhịp điệu video dồn dập, giữ chân người xem.
+- 🤖 **Sẵn sàng cho AI Agent:** Tích hợp bộ Skill sẵn có cho cả **Google Antigravity** và **Anthropic Claude**.
+
+---
+
+## 📐 Cấu trúc Kịch bản Chuẩn (50–60 Giây)
+
+Video ngắn áp dụng mô hình tâm lý thu hút người xem gồm 6 phân cảnh:
+
+```
+[Scene 1: Hook (0s-5s)]       -> Gây chú ý tức thì bằng câu hỏi tò mò & Title lớn 8xl
+[Scene 2: Pain Point (5s-12s)] -> Trích dẫn nỗi đau thực tế & so sánh Local vs Server
+[Scene 3: Solution (12s-20s)]  -> Giới thiệu giải pháp cốt lõi (Container 3D Box)
+[Scene 4: Workflow (20s-29s)]  -> Quy trình hoạt động 3 bước (Dockerfile -> Image -> Run)
+[Scene 5: Benefits (29s-37s)]  -> 3 lợi ích vượt trội (Nhẹ 10x, Tiết kiệm RAM, Multi-Cloud)
+[Scene 6: Outro & CTA (37s-43s)]-> Tổng kết đắt giá + Kêu gọi Thả tim & Follow kênh
+```
+
+---
+
+## 🚀 Cài đặt nhanh
+
+### 1. Clone repository & Cài đặt thư viện
+```bash
+git clone https://github.com/Cuongyd196/remotion-cuongit-template.git
+cd remotion-cuongit-template
+npm install
+```
+
+### 2. Thiết lập biến môi trường `.env`
+Sao chép file `.env.example` thành `.env`:
+```bash
+cp .env.example .env
+```
+
+Nội dung cấu hình trong `.env`:
+```env
+# Giọng đọc AI Voiceover
+EDGE_TTS_VOICE=vi-VN-HoaiMyNeural
+EDGE_TTS_RATE=+10%
+EDGE_TTS_PITCH=+0Hz
+EDGE_TTS_VOLUME=+0%
+EDGE_TTS_OUTPUT_DIR=public/audio
+
+# Thương hiệu kênh (Hiển thị góc trên giữa video)
+CHANNEL_NAME="CƯỜNG IT"
+```
+
+---
+
+## 🎙️ Cấu hình Giọng đọc Edge TTS
+
+Hỗ trợ nhiều giọng đọc AI chất lượng cao:
+- **Tiếng Việt Nữ (Truyền cảm):** `vi-VN-HoaiMyNeural`
+- **Tiếng Việt Nam (Trầm ấm, rõ ràng):** `vi-VN-NamMinhNeural`
+- **Tiếng Anh (Kể chuyện / Tin tức):** `en-US-ChristopherNeural`, `en-US-GuyNeural`, `en-US-AriaNeural`
+
+Sinh giọng đọc thủ công qua terminal:
+```bash
+# Sinh giọng đọc cho 1 đoạn văn bản đơn
+npm run tts -- --text "Xin chào các bạn, hôm nay chúng ta cùng tìm hiểu về Docker." public/audio/test.mp3
+```
+
+---
+
+## 🤖 Tích hợp AI Skills (Antigravity & Claude)
+
+Repository đi kèm bộ Skill định nghĩa sẵn giúp AI tự động tạo video hoàn chỉnh:
+
+| Nền tảng | Đường dẫn Skill File | Hướng dẫn kích hoạt |
+| :--- | :--- | :--- |
+| **Anthropic Claude** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Tự động nhận diện trong **Claude Code CLI** hoặc **Claude Desktop Projects**. |
+| **Google Antigravity**| `.agents/skills/remotion-topic-explainer/SKILL.md` | Tự động kích hoạt trong **Antigravity IDE** hoặc CLI. |
+
+### Câu lệnh mẫu cho AI Agent:
+> *"Tạo video ngắn 50-60s giải thích về [Chủ đề của bạn: Docker, Redis, Kubernetes, Git Rebase, WebSocket...]"*
+
+**AI Agent sẽ tự động:**
+1. Soạn kịch bản 6 cảnh đánh trúng tâm lý người xem.
+2. Gọi script `generate-tts.ts` sinh voiceover và trích xuất timing frame chính xác.
+3. Code các component React Remotion với animation nảy mượt mà (`spring()`).
+4. Đăng ký Composition vào `src/Root.tsx`.
+
+---
+
+## 🎬 Xem trước & Render
+
+### 1. Khởi chạy Remotion Preview Studio
 ```bash
 npm run dev
 ```
+Mở trình duyệt tại **[http://localhost:3000](http://localhost:3000)** để xem và tinh chỉnh timeline theo thời gian thực.
 
-![Remotion Studio](assets/studio.png)
-
-**Render Video:**
-
-Có thể render video trực tiếp trên giao diện Remotion Studio (nhấn nút "Render" ở composition muốn xuất), hoặc dùng command line:
+### 2. Render ảnh tĩnh (Still Thumbnail)
 ```bash
-# Render video Linux
-npx remotion render LinuxFileSystem
-
-# Render video Docker
-npx remotion render DockerIntro
+npx remotion still DockerExplainer out/preview.png --frame 200
 ```
 
-## 📝 Giấy phép
-Phát hành theo giấy phép MIT License.
+### 3. Xuất Video MP4 hoàn chỉnh
+```bash
+npx remotion render DockerExplainer out/DockerExplainer.mp4
+```
+
+---
+
+## 📂 Cấu trúc Thư mục Dự án
+
+```text
+remotion-cuongit-template/
+├── .agents/skills/          # AI Skill cho Google Antigravity
+├── .claude/skills/          # AI Skill cho Anthropic Claude
+├── .env.example             # File mẫu cấu hình biến môi trường
+├── public/
+│   └── audio/               # Thư mục lưu trữ voiceover MP3 được sinh ra
+├── scripts/
+│   ├── generate-tts.ts      # Engine sinh Voiceover TTS tự động & tính frame
+│   └── generate-docker-audio.ts # Kịch bản mẫu cho Docker
+├── src/
+│   ├── DockerExplainer/     # Composition video giải thích Docker
+│   │   ├── DockerExplainer.tsx  # Sequence Master & Animated Background
+│   │   ├── types.ts             # Schema & Props
+│   │   ├── audioData.ts         # Metadata thời lượng audio từng cảnh
+│   │   ├── components/
+│   │   │   ├── BrandHeader.tsx  # Huy hiệu kênh CƯỜNG IT (top: 150px)
+│   │   │   └── SubtitleBox.tsx  # Subtitle 1 dòng (5-7 từ/lần, mt-64)
+│   │   └── scenes/
+│   │       ├── Scene1Hook.tsx
+│   │       ├── Scene2Problem.tsx
+│   │       ├── Scene3Container.tsx
+│   │       ├── Scene4ImageDockerfile.tsx
+│   │       ├── Scene5Benefits.tsx
+│   │       └── Scene6Outro.tsx
+│   ├── Root.tsx             # Đăng ký Composition Remotion
+│   └── index.css            # TailwindCSS styles
+└── remotion.config.ts       # Cấu hình render Remotion
+```
+
+---
+
+## 📄 Giấy phép (License)
+Dự án được phân phối dưới giấy phép **[MIT License](LICENSE)**. Tự do sử dụng cho mục đích cá nhân và thương mại.

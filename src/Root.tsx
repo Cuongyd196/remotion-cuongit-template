@@ -1,72 +1,24 @@
 import "./index.css";
 import { Composition } from "remotion";
-import { HelloWorld, myCompSchema } from "./HelloWorld";
-import { Logo, myCompSchema2 } from "./HelloWorld/Logo";
-import { DockerIntro, dockerIntroSchema } from "./DockerIntro/DockerIntro";
-import { LinuxFileSystem, linuxFileSystemSchema } from "./LinuxFileSystem/LinuxFileSystem";
-
-// Each <Composition> is an entry in the sidebar!
+import { DockerExplainer } from "./DockerExplainer/DockerExplainer";
+import { dockerExplainerSchema } from "./DockerExplainer/types";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      {/* 50s AI Voice Explainer: Docker */}
       <Composition
-        // You can take the "id" to render a video:
-        // npx remotion render HelloWorld
-        id="HelloWorld"
-        component={HelloWorld}
-        durationInFrames={150}
-        fps={30}
-        width={1920}
-        height={1080}
-        // You can override these props for each render:
-        // https://www.remotion.dev/docs/parametrized-rendering
-        schema={myCompSchema}
-        defaultProps={{
-          titleText: "Welcome to Remotion",
-          titleColor: "#000000",
-          logoColor1: "#91EAE4",
-          logoColor2: "#86A8E7",
-        }}
-      />
-
-      {/* Mount any React component to make it show up in the sidebar and work on it individually! */}
-      <Composition
-        id="OnlyLogo"
-        component={Logo}
-        durationInFrames={150}
-        fps={30}
-        width={1920}
-        height={1080}
-        schema={myCompSchema2}
-        defaultProps={{
-          logoColor1: "#91dAE2" as const,
-          logoColor2: "#86A8E7" as const,
-        }}
-      />
-
-      {/* Docker Introduction Video */}
-      <Composition
-        id="DockerIntro"
-        component={DockerIntro}
-        durationInFrames={1440}
+        id="DockerExplainer"
+        component={DockerExplainer}
+        durationInFrames={1280}
         fps={30}
         width={1080}
         height={1920}
-        schema={dockerIntroSchema}
-        defaultProps={{}}
-      />
-      
-      {/* Linux File System Video */}
-      <Composition
-        id="LinuxFileSystem"
-        component={LinuxFileSystem}
-        durationInFrames={1530}
-        fps={30}
-        width={1080}
-        height={1920}
-        schema={linuxFileSystemSchema}
-        defaultProps={{}}
+        schema={dockerExplainerSchema}
+        defaultProps={{
+          title: "Docker là gì?",
+          subtitle: "Giải thích trong 50 giây",
+        }}
       />
     </>
   );

@@ -7,13 +7,15 @@
   "private": true,
   "dependencies": {
     "@remotion/cli": "4.0.407",
+    "@remotion/tailwind-v4": "4.0.407",
     "@remotion/zod-types": "4.0.407",
+    "dotenv": "^17.4.2",
+    "edge-tts-universal": "^1.4.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "remotion": "4.0.407",
-    "zod": "3.22.3",
-    "@remotion/tailwind-v4": "4.0.407",
-    "tailwindcss": "4.0.0"
+    "tailwindcss": "4.0.0",
+    "zod": "3.22.3"
   },
   "devDependencies": {
     "@remotion/eslint-config-flat": "4.0.407",
@@ -21,13 +23,15 @@
     "@types/web": "0.0.166",
     "eslint": "9.19.0",
     "prettier": "3.6.0",
+    "tsx": "^4.23.13",
     "typescript": "5.9.3"
   },
   "scripts": {
     "dev": "remotion studio",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "tts": "tsx scripts/generate-tts.ts"
   },
   "sideEffects": [
     "*.css"
