@@ -109,21 +109,35 @@ npm run tts -- --text "Hello everyone, today we explore how Docker works." publi
 
 ## 🤖 AI Skills Integration (Antigravity & Claude)
 
-The repository provides ready-to-use skill definitions for AI agents:
+The repository provides ready-to-use skill definitions for automated video production:
 
-| AI Platform | Skill File Location | Activation Guide |
+| AI Platform | Skill File Location | Activation Method |
 | :--- | :--- | :--- |
-| **Anthropic Claude** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Auto-detected in **Claude Code CLI** and **Claude Desktop Projects**. |
-| **Google Antigravity**| `.agents/skills/remotion-topic-explainer/SKILL.md` | Auto-detected in **Antigravity IDE** and CLI. |
+| **Claude Extension (VS Code)** / **Claude Code** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Use Slash Command: `/remotion-topic-explainer [topic name]` |
+| **Anthropic Claude Desktop / Projects** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Auto-detected via Workspace Custom Skills. |
+| **Google Antigravity** | `.agents/skills/remotion-topic-explainer/SKILL.md` | Auto-detected in **Antigravity IDE** and CLI. |
 
-### Prompt Example:
+### Quick Usage:
+
+**1. Inside VS Code with Claude Extension / Claude Code:**
+Type the slash command directly:
+```bash
+/remotion-topic-explainer Docker
+/remotion-topic-explainer Kubernetes
+/remotion-topic-explainer Redis Caching
+```
+
+**2. Natural Language Prompt:**
 > *"Create a 50-60s vertical explainer video about [Your Topic: e.g. Docker, Redis, Kubernetes, Git Rebase, WebSocket]"*
 
-**The AI Agent will automatically:**
-1. Draft a structured 6-scene script tailored for short-form video.
-2. Run `generate-tts.ts` to synthesize voiceovers and compute exact frame timings.
-3. Build Remotion React components with spring animations and modern typography.
-4. Register the new Composition in `src/Root.tsx`.
+---
+
+### Automated Agent Workflow:
+1. **Drafts structured 6-scene script** (Hook, Problem, Solution, Workflow, Benefits, Outro & CTA).
+2. **Runs TTS generator** (`generate-tts.ts`) to produce voiceover audio and calculate frame-accurate timings.
+3. **Applies mobile-first visual standards** (centered content, `⚡ CƯỜNG IT` brand header, single-line chunked subtitles).
+4. **Builds Remotion React components** with spring motion physics and registers the Composition in `src/Root.tsx`.
+
 
 ---
 

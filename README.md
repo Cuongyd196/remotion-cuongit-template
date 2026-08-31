@@ -113,19 +113,33 @@ npm run tts -- --text "Xin chào các bạn, hôm nay chúng ta cùng tìm hiể
 
 Repository đi kèm bộ Skill định nghĩa sẵn giúp AI tự động tạo video hoàn chỉnh:
 
-| Nền tảng | Đường dẫn Skill File | Hướng dẫn kích hoạt |
+| Nền tảng | Đường dẫn Skill File | Cách kích hoạt |
 | :--- | :--- | :--- |
-| **Anthropic Claude** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Tự động nhận diện trong **Claude Code CLI** hoặc **Claude Desktop Projects**. |
-| **Google Antigravity**| `.agents/skills/remotion-topic-explainer/SKILL.md` | Tự động kích hoạt trong **Antigravity IDE** hoặc CLI. |
+| **Claude Extension (VS Code)** / **Claude Code** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Dùng Slash Command: `/remotion-topic-explainer [tên chủ đề]` |
+| **Anthropic Claude Desktop / Projects** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Tự động nhận diện qua Custom Skills trong Workspace. |
+| **Google Antigravity** | `.agents/skills/remotion-topic-explainer/SKILL.md` | Tự động nhận diện trong **Antigravity IDE** hoặc CLI. |
 
-### Câu lệnh mẫu cho AI Agent:
+### Cách sử dụng nhanh:
+
+**1. Trong VS Code với Claude Extension / Claude Code:**
+Gõ trực tiếp slash command:
+```bash
+/remotion-topic-explainer Docker
+/remotion-topic-explainer Kubernetes
+/remotion-topic-explainer Redis Caching
+```
+
+**2. Bằng câu lệnh tự nhiên (Natural Language Prompt):**
 > *"Tạo video ngắn 50-60s giải thích về [Chủ đề của bạn: Docker, Redis, Kubernetes, Git Rebase, WebSocket...]"*
 
-**AI Agent sẽ tự động:**
-1. Soạn kịch bản 6 cảnh đánh trúng tâm lý người xem.
-2. Gọi script `generate-tts.ts` sinh voiceover và trích xuất timing frame chính xác.
-3. Code các component React Remotion với animation nảy mượt mà (`spring()`).
-4. Đăng ký Composition vào `src/Root.tsx`.
+---
+
+### Quy trình tự động hóa của AI Agent:
+1. **Soạn kịch bản** chuẩn 6 phân cảnh (Hook, Problem, Solution, Workflow, Benefits, Outro & CTA).
+2. **Gọi script TTS** (`generate-tts.ts`) để sinh audio giọng đọc và đo chính xác frame duration cho từng cảnh.
+3. **Thiết kế visual mobile** (căn giữa nội dung, huy hiệu thương hiệu `⚡ CƯỜNG IT`, subtitle 1 dòng gãy gọn).
+4. **Code React Remotion** với animation spring nảy mượt mà và đăng ký Composition vào `src/Root.tsx`.
+
 
 ---
 
