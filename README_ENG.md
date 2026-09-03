@@ -9,7 +9,7 @@
 [![AI Skills](https://img.shields.io/badge/AI_Skills-Antigravity_%7C_Claude-purple?style=for-the-badge)](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-**Automated 50–60s vertical video generation framework (9:16) for tech & coding explainers using React, Remotion, and AI Voiceover.**
+**Automated (9:16) vertical video generation framework for tech & coding explainers using React, Remotion, and AI Voiceover.**
 
 <br />
 
@@ -19,7 +19,7 @@
 
 <p><em>Mobile-first 9:16 vertical layout with <strong>⚡ CƯỜNG IT</strong> brand header, centered core visual & single-line subtitle</em></p>
 
-<p><a href="https://youtube.com/shorts/1bs4prcg-Fc?feature=share" target="_blank" rel="noopener noreferrer"><strong>▶️ Watch Demo Video on YouTube Shorts</strong></a></p>
+<p><a href="https://facebook.com/reel/27974855735519825" target="_blank" rel="noopener noreferrer"><strong>▶️ Watch Demo Video on Reels</strong></a></p>
 
 [✨ Key Features](#-key-features) • [🚀 Quickstart](#-quickstart) • [🎙️ Voiceover Config](#️-edge-tts-voiceover-configuration) • [🤖 AI Skills Integration](#-ai-skills-integration-antigravity--claude) • [🎬 Preview & Render](#-preview--rendering)
 

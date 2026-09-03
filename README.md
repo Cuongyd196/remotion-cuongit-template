@@ -9,17 +9,17 @@
 [![AI Skills](https://img.shields.io/badge/AI_Skills-Antigravity_%7C_Claude-purple?style=for-the-badge)](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-**Framework tự động hóa tạo video ngắn 50–60s (9:16) giải thích công nghệ & lập trình với React, Remotion và AI Voiceover.**
+** Tự động tạo video ngắn (9:16) giải thích kiến thức với Remotion và AI.**
 
 <br />
 
-<a href="https://youtube.com/shorts/1bs4prcg-Fc?feature=share" target="_blank" rel="noopener noreferrer">
+<a href="https://youtube.com/shorts/791T9vQ229A?si=8H17eP51gI333oA6" target="_blank" rel="noopener noreferrer">
   <img src="assets/demo-preview.png" alt="Demo Video Preview" width="340" style="border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" />
 </a>
 
 <p><em>Giao diện video dọc 9:16 chuẩn mobile với thương hiệu <strong>⚡ CƯỜNG IT</strong>, bố cục căn giữa và phụ đề 1 dòng</em></p>
 
-<p><a href="https://youtube.com/shorts/1bs4prcg-Fc?feature=share" target="_blank" rel="noopener noreferrer"><strong>▶️ Xem Video Demo trên YouTube Shorts</strong></a></p>
+<p><a href="https://facebook.com/reel/27974855735519825" target="_blank" rel="noopener noreferrer"><strong>▶️ Xem Video Demo trên Reels</strong></a></p>
 
 [✨ Tính năng nổi bật](#-tính-năng-nổi-bật) • [🚀 Cài đặt nhanh](#-cài-đặt-nhanh) • [🎙️ Cấu hình Voiceover](#️-cấu-hình-giọng-đọc-edge-tts) • [🤖 Tích hợp AI Skills](#-tích-hợp-ai-skills-antigravity--claude) • [🎬 Lệnh Render](#-xem-trước--render)
 
