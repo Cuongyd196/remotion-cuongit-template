@@ -21,7 +21,7 @@
 
 <p><a href="https://facebook.com/reel/27974855735519825" target="_blank" rel="noopener noreferrer"><strong>▶️ Watch Demo Video on Reels</strong></a></p>
 
-[✨ Key Features](#-key-features) • [🚀 Quickstart](#-quickstart) • [🎙️ Voiceover Config](#️-edge-tts-voiceover-configuration) • [🤖 AI Skills Integration](#-ai-skills-integration-antigravity--claude) • [🎬 Preview & Render](#-preview--rendering)
+[✨ Key Features](#-key-features) • [🚀 Quickstart](#-quickstart) • [🎙️ Voiceover Config](#️-edge-tts-voiceover-configuration) • [🤖 AI Skills Integration](#-ai-skills-integration-antigravity--claude) • [🎬 Preview & Render](#-preview--rendering) • [💬 Community & More](#-community--more-video-templates)
 
 </div>
 
@@ -31,6 +31,8 @@
 - **Author:** [Cuong IT (Cuongyd196)](https://www.facebook.com/cuongit96/)
 - 🎵 **TikTok:** [@cuongit96](https://www.tiktok.com/@cuongit96)
 - 🌐 **Facebook Reels:** [Cuong IT Reels](https://www.facebook.com/cuongit96/reels/)
+- 👥 **Facebook Group:** [facebook.com/groups/1010029065373486](https://www.facebook.com/groups/1010029065373486/)
+- 👥 **Zalo Group:** [zalo.me/g/8bfeotyh5ewtkzxmp5gt](https://zalo.me/g/8bfeotyh5ewtkzxmp5gt)
 
 
 ---
@@ -192,6 +194,23 @@ remotion-cuongit-template/
 │   └── index.css            # TailwindCSS styles
 └── remotion.config.ts       # Remotion bundle & render config
 ```
+
+---
+
+## 💬 Community & More Video Templates
+
+### 🎬 Check out other video generation templates:
+- Auto Video Generator from Article/URL: 🔗 [github.com/Cuongyd196/auto-video-gen](https://github.com/Cuongyd196/auto-video-gen)
+- Knowledge Comparison Video Generator: 🔗 [github.com/Cuongyd196/auto-compare-video](https://github.com/Cuongyd196/auto-compare-video)
+
+### 🤝 Join the community:
+We have community groups for discussing AI Video Creation.  
+For any issues regarding open-source repos, feel free to ask for support!
+
+- 👥 Facebook Group: [facebook.com/groups/1010029065373486](https://www.facebook.com/groups/1010029065373486/)
+- 👥 Zalo Group: [zalo.me/g/8bfeotyh5ewtkzxmp5gt](https://zalo.me/g/8bfeotyh5ewtkzxmp5gt)
+
+⭐ **If you find this useful, please give this repo a star on GitHub 🌟**
 
 ---
 

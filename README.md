@@ -21,7 +21,7 @@
 
 <p><a href="https://facebook.com/reel/27974855735519825" target="_blank" rel="noopener noreferrer"><strong>▶️ Xem Video Demo trên Reels</strong></a></p>
 
-[✨ Tính năng nổi bật](#-tính-năng-nổi-bật) • [🚀 Cài đặt nhanh](#-cài-đặt-nhanh) • [🎙️ Cấu hình Voiceover](#️-cấu-hình-giọng-đọc-edge-tts) • [🤖 Tích hợp AI Skills](#-tích-hợp-ai-skills-antigravity--claude) • [🎬 Lệnh Render](#-xem-trước--render)
+[✨ Tính năng nổi bật](#-tính-năng-nổi-bật) • [🚀 Cài đặt nhanh](#-cài-đặt-nhanh) • [🎙️ Cấu hình Voiceover](#️-cấu-hình-giọng-đọc-edge-tts) • [🤖 Tích hợp AI Skills](#-tích-hợp-ai-skills-antigravity--claude) • [🎬 Lệnh Render](#-xem-trước--render) • [💬 Cộng đồng & Hỗ trợ](#-cộng-đồng--các-mẫu-video-khác)
 
 </div>
 
@@ -31,6 +31,8 @@
 - **Tác giả:** [Cường IT (Cuongyd196)](https://www.facebook.com/cuongit96/)
 - 🎵 **TikTok:** [@cuongit96](https://www.tiktok.com/@cuongit96)
 - 🌐 **Facebook Reels:** [Cường IT Reels](https://www.facebook.com/cuongit96/reels/)
+- 👥 **Nhóm Facebook:** [facebook.com/groups/1010029065373486](https://www.facebook.com/groups/1010029065373486/)
+- 👥 **Nhóm Zalo:** [zalo.me/g/8bfeotyh5ewtkzxmp5gt](https://zalo.me/g/8bfeotyh5ewtkzxmp5gt)
 
 
 ---
@@ -194,6 +196,23 @@ remotion-cuongit-template/
 │   └── index.css            # TailwindCSS styles
 └── remotion.config.ts       # Cấu hình render Remotion
 ```
+
+---
+
+## 💬 Cộng đồng & Các mẫu Video khác
+
+### 🎬 Xem các mẫu tạo video khác tại:
+- Link repo tạo video từ 1 đường Link/Bài viết: 🔗 [github.com/Cuongyd196/auto-video-gen](https://github.com/Cuongyd196/auto-video-gen)
+- Link tạo video so sánh kiến thức: 🔗 [github.com/Cuongyd196/auto-compare-video](https://github.com/Cuongyd196/auto-compare-video)
+
+### 🤝 Tham gia cộng đồng:
+Mình tạo nhóm này cho các bạn trao đổi về Làm Video với AI nhé.  
+Với các repo mình công khai, có vướng mắc mình sẽ giải đáp cho các bạn.
+
+- 👥 Nhóm trên Facebook: [facebook.com/groups/1010029065373486](https://www.facebook.com/groups/1010029065373486/)
+- 👥 Nhóm trên Zalo: [zalo.me/g/8bfeotyh5ewtkzxmp5gt](https://zalo.me/g/8bfeotyh5ewtkzxmp5gt)
+
+⭐ **Nếu hữu ích với các bạn thì cho mình 1 star GitHub nhé 🌟**
 
 ---
 
