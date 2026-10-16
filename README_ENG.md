@@ -6,7 +6,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![Edge TTS](https://img.shields.io/badge/Edge_TTS-AI_Voiceover-brightgreen?style=for-the-badge)](https://www.npmjs.com/package/edge-tts-universal)
-[![AI Skills](https://img.shields.io/badge/AI_Skills-Antigravity_%7C_Claude-purple?style=for-the-badge)](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
+[![AI Skills](https://img.shields.io/badge/AI_Skills-Antigravity_%7C_Claude_%7C_Codex-purple?style=for-the-badge)](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 **Automated (9:16) vertical video generation framework for tech & coding explainers using React, Remotion, and AI Voiceover.**
@@ -21,7 +21,7 @@
 
 <p><a href="https://facebook.com/reel/27974855735519825" target="_blank" rel="noopener noreferrer"><strong>▶️ Watch Demo Video on Reels</strong></a></p>
 
-[✨ Key Features](#-key-features) • [🚀 Quickstart](#-quickstart) • [🎙️ Voiceover Config](#️-edge-tts-voiceover-configuration) • [🤖 AI Skills Integration](#-ai-skills-integration-antigravity--claude) • [🎬 Preview & Render](#-preview--rendering) • [💬 Community & More](#-community--more-video-templates)
+[✨ Key Features](#-key-features) • [🚀 Quickstart](#-quickstart) • [🎙️ Voiceover Config](#️-edge-tts-voiceover-configuration) • [🤖 AI Skills Integration](#-ai-skills-integration-antigravity-claude--codex) • [🎬 Preview & Render](#-preview--rendering) • [💬 Community & More](#-community--more-video-templates)
 
 </div>
 
@@ -47,7 +47,7 @@
   - **Brand Header:** `⚡ CƯỜNG IT` badge fixed at `top: 150px`, staying clear of platform search bars.
   - **Single-Line Subtitle:** Auto-chunked into 5–7 words per phrase, `text-4xl` font, synchronized to spoken audio.
   - **Snappy Transitions:** Only `+3 frames` buffer between scenes keeps the video fast-paced and engaging.
-- 🤖 **AI-Agent Ready:** Includes pre-built custom skills for both **Google Antigravity** and **Anthropic Claude**.
+- 🤖 **AI-Agent Ready:** Includes pre-built custom skills for **Google Antigravity**, **Anthropic Claude** and **ChatGPT Plus (Codex)**.
 
 ---
 
@@ -130,7 +130,7 @@ Full voice list & API parameters: see [docs/cit-voice-studio.md](docs/cit-voice-
 
 ---
 
-## 🤖 AI Skills Integration (Antigravity & Claude)
+## 🤖 AI Skills Integration (Antigravity, Claude & Codex)
 
 The repository provides ready-to-use skill definitions for automated video production:
 
@@ -139,6 +139,7 @@ The repository provides ready-to-use skill definitions for automated video produ
 | **Claude Extension (VS Code)** / **Claude Code** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Use Slash Command: `/remotion-topic-explainer [topic name]` |
 | **Anthropic Claude Desktop / Projects** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Auto-detected via Workspace Custom Skills. |
 | **Google Antigravity** | `.agents/skills/remotion-topic-explainer/SKILL.md` | Auto-detected in **Antigravity IDE** and CLI. |
+| **ChatGPT Plus (Codex CLI / IDE / App)** | `.agents/skills/remotion-topic-explainer/SKILL.md` | Type `$remotion-topic-explainer [topic name]` or pick it via `/skills`. |
 
 ### Quick Usage:
 
@@ -150,7 +151,13 @@ Type the slash command directly:
 /remotion-topic-explainer Redis Caching
 ```
 
-**2. Natural Language Prompt:**
+**2. With ChatGPT Plus (Codex):**
+Sign in to Codex with your ChatGPT Plus account, open Codex in the repo folder and invoke the skill:
+```bash
+$remotion-topic-explainer Docker
+```
+
+**3. Natural Language Prompt:**
 > *"Create a 50-60s vertical explainer video about [Your Topic: e.g. Docker, Redis, Kubernetes, Git Rebase, WebSocket]"*
 
 ---
@@ -188,7 +195,7 @@ npx remotion render DockerExplainer out/DockerExplainer.mp4
 
 ```text
 remotion-cuongit-template/
-├── .agents/skills/          # Google Antigravity Skill
+├── .agents/skills/          # Google Antigravity & Codex (ChatGPT Plus) Skill
 ├── .claude/skills/          # Anthropic Claude Custom Skill
 ├── .env.example             # Environment variable template
 ├── public/

@@ -6,7 +6,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![Edge TTS](https://img.shields.io/badge/Edge_TTS-AI_Voiceover-brightgreen?style=for-the-badge)](https://www.npmjs.com/package/edge-tts-universal)
-[![AI Skills](https://img.shields.io/badge/AI_Skills-Antigravity_%7C_Claude-purple?style=for-the-badge)](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
+[![AI Skills](https://img.shields.io/badge/AI_Skills-Antigravity_%7C_Claude_%7C_Codex-purple?style=for-the-badge)](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 ** Tự động tạo video ngắn (9:16) giải thích kiến thức với Remotion và AI.**
@@ -21,7 +21,7 @@
 
 <p><a href="https://facebook.com/reel/27974855735519825" target="_blank" rel="noopener noreferrer"><strong>▶️ Xem Video Demo trên Reels</strong></a></p>
 
-[✨ Tính năng nổi bật](#-tính-năng-nổi-bật) • [🚀 Cài đặt nhanh](#-cài-đặt-nhanh) • [🎙️ Cấu hình Voiceover](#️-cấu-hình-giọng-đọc-edge-tts) • [🤖 Tích hợp AI Skills](#-tích-hợp-ai-skills-antigravity--claude) • [🎬 Lệnh Render](#-xem-trước--render) • [💬 Cộng đồng & Hỗ trợ](#-cộng-đồng--các-mẫu-video-khác)
+[✨ Tính năng nổi bật](#-tính-năng-nổi-bật) • [🚀 Cài đặt nhanh](#-cài-đặt-nhanh) • [🎙️ Cấu hình Voiceover](#️-cấu-hình-giọng-đọc-edge-tts) • [🤖 Tích hợp AI Skills](#-tích-hợp-ai-skills-antigravity-claude--codex) • [🎬 Lệnh Render](#-xem-trước--render) • [💬 Cộng đồng & Hỗ trợ](#-cộng-đồng--các-mẫu-video-khác)
 
 </div>
 
@@ -47,7 +47,7 @@
   - **Thương hiệu Kênh (Brand Header):** Huy hiệu `⚡ CƯỜNG IT` cố định tại `top: 150px`, an toàn tuyệt đối, không bị che bởi thanh tìm kiếm.
   - **Phụ đề 1 Dòng (Single-Line Chunked Subtitle):** Tự động ngắt 5–7 từ/lần, cỡ chữ lớn `text-4xl`, nhảy cụm từ mượt mà theo nhịp đọc.
   - **Nhịp chuyển cảnh nhanh (Snappy Buffer):** Độ trễ giữa các cảnh chỉ `+3 frames` (~0.1s), giữ nhịp điệu video dồn dập, giữ chân người xem.
-- 🤖 **Sẵn sàng cho AI Agent:** Tích hợp bộ Skill sẵn có cho cả **Google Antigravity** và **Anthropic Claude**.
+- 🤖 **Sẵn sàng cho AI Agent:** Tích hợp bộ Skill sẵn có cho **Google Antigravity**, **Anthropic Claude** và **ChatGPT Plus (Codex)**.
 
 ---
 
@@ -132,7 +132,7 @@ Danh sách giọng đầy đủ & tham số API: xem [docs/cit-voice-studio.md](
 
 ---
 
-## 🤖 Tích hợp AI Skills (Antigravity & Claude)
+## 🤖 Tích hợp AI Skills (Antigravity, Claude & Codex)
 
 Repository đi kèm bộ Skill định nghĩa sẵn giúp AI tự động tạo video hoàn chỉnh:
 
@@ -141,6 +141,7 @@ Repository đi kèm bộ Skill định nghĩa sẵn giúp AI tự động tạo 
 | **Claude Extension (VS Code)** / **Claude Code** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Dùng Slash Command: `/remotion-topic-explainer [tên chủ đề]` |
 | **Anthropic Claude Desktop / Projects** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Tự động nhận diện qua Custom Skills trong Workspace. |
 | **Google Antigravity** | `.agents/skills/remotion-topic-explainer/SKILL.md` | Tự động nhận diện trong **Antigravity IDE** hoặc CLI. |
+| **ChatGPT Plus (Codex CLI / IDE / App)** | `.agents/skills/remotion-topic-explainer/SKILL.md` | Gõ `$remotion-topic-explainer [tên chủ đề]` hoặc chọn qua lệnh `/skills`. |
 
 ### Cách sử dụng nhanh:
 
@@ -152,7 +153,13 @@ Gõ trực tiếp slash command:
 /remotion-topic-explainer Redis Caching
 ```
 
-**2. Bằng câu lệnh tự nhiên (Natural Language Prompt):**
+**2. Với ChatGPT Plus (Codex):**
+Đăng nhập Codex bằng tài khoản ChatGPT Plus, mở Codex tại thư mục repo rồi gọi skill:
+```bash
+$remotion-topic-explainer Docker
+```
+
+**3. Bằng câu lệnh tự nhiên (Natural Language Prompt):**
 > *"Tạo video ngắn 50-60s giải thích về [Chủ đề của bạn: Docker, Redis, Kubernetes, Git Rebase, WebSocket...]"*
 
 ---
@@ -190,7 +197,7 @@ npx remotion render DockerExplainer out/DockerExplainer.mp4
 
 ```text
 remotion-cuongit-template/
-├── .agents/skills/          # AI Skill cho Google Antigravity
+├── .agents/skills/          # AI Skill cho Google Antigravity & Codex (ChatGPT Plus)
 ├── .claude/skills/          # AI Skill cho Anthropic Claude
 ├── .env.example             # File mẫu cấu hình biến môi trường
 ├── public/
