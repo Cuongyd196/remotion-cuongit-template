@@ -1,0 +1,66 @@
+{
+  "topic": "DevOpsSysadmin",
+  "provider": "cit",
+  "voice": "Hải Đăng",
+  "speed": 1.05,
+  "totalScenes": 6,
+  "totalDurationFrames": 1505,
+  "totalDurationSec": 50.2,
+  "scenes": [
+    {
+      "id": "01_hook",
+      "text": "DevOps có phải là tên gọi mới của sysadmin? Cùng làm với máy chủ, nhưng trọng tâm của hai khái niệm này có nhiều điểm khác nhau.",
+      "audioPath": "audio/DevOpsSysadmin/01_hook.wav",
+      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DevOpsSysadmin\\01_hook.wav",
+      "sizeBytes": 614598,
+      "estimatedDurationSec": 6.4,
+      "durationInFrames": 202
+    },
+    {
+      "id": "02_context",
+      "text": "Một ứng dụng vừa ra mắt đã gặp lỗi. Đội phát triển nói máy tôi vẫn chạy. Đội vận hành cần hệ thống ổn định. Làm sao hai bên phối hợp hiệu quả?",
+      "audioPath": "audio/DevOpsSysadmin/02_context.wav",
+      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DevOpsSysadmin\\02_context.wav",
+      "sizeBytes": 680426,
+      "estimatedDurationSec": 7.09,
+      "durationInFrames": 223
+    },
+    {
+      "id": "03_sysadmin",
+      "text": "Sysadmin là người quản trị hệ thống: cấu hình máy chủ, quản lý tài khoản, cập nhật bảo mật, sao lưu và khôi phục. Mục tiêu là giữ hạ tầng an toàn, sẵn sàng phục vụ.",
+      "audioPath": "audio/DevOpsSysadmin/03_sysadmin.wav",
+      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DevOpsSysadmin\\03_sysadmin.wav",
+      "sizeBytes": 790140,
+      "estimatedDurationSec": 8.23,
+      "durationInFrames": 257
+    },
+    {
+      "id": "04_devops",
+      "text": "DevOps là văn hóa và cách làm giúp phát triển phối hợp với vận hành. Nhóm dùng kiểm thử tự động, triển khai liên tục và hạ tầng bằng mã để đưa thay đổi lên an toàn.",
+      "audioPath": "audio/DevOpsSysadmin/04_devops.wav",
+      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DevOpsSysadmin\\04_devops.wav",
+      "sizeBytes": 782826,
+      "estimatedDurationSec": 8.15,
+      "durationInFrames": 255
+    },
+    {
+      "id": "05_together",
+      "text": "Ví dụ, khi phát hành tính năng, quy trình tự động kiểm thử rồi triển khai. Hệ thống được giám sát; có lỗi thì khôi phục. Sysadmin cũng có thể xây tự động hóa và tham gia DevOps.",
+      "audioPath": "audio/DevOpsSysadmin/05_together.wav",
+      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DevOpsSysadmin\\05_together.wav",
+      "sizeBytes": 870598,
+      "estimatedDurationSec": 9.07,
+      "durationInFrames": 283
+    },
+    {
+      "id": "06_outro",
+      "text": "Vậy sysadmin tập trung quản trị hệ thống; DevOps cải thiện cả dòng chảy phát triển và vận hành. Công việc có thể giao nhau tùy tổ chức. Theo dõi Cường IT để hiểu công nghệ!",
+      "audioPath": "audio/DevOpsSysadmin/06_outro.wav",
+      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DevOpsSysadmin\\06_outro.wav",
+      "sizeBytes": 877912,
+      "estimatedDurationSec": 9.14,
+      "durationInFrames": 285
+    }
+  ],
+  "generatedAt": "2026-10-16T01:42:54.914Z"
+}
