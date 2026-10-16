@@ -1,6 +1,6 @@
 ---
 name: remotion-topic-explainer
-description: Tạo video ngắn 50-60s dạng video dọc (9:16, 1080x1920 @ 30fps) giải thích bất kỳ chủ đề lập trình/công nghệ nào bằng Remotion. Kết hợp giọng đọc AI Voiceover tự nhiên từ edge-tts-universal (.env), căn giữa nội dung trực quan, huy hiệu thương hiệu kênh phía trên và phụ đề 1 dòng gãy gọn.
+description: Tạo video ngắn 50-60s dạng video dọc (9:16, 1080x1920 @ 30fps) giải thích bất kỳ chủ đề lập trình/công nghệ nào bằng Remotion. Kết hợp giọng đọc AI Voiceover tự nhiên từ edge-tts-universal hoặc CIT Voice Studio (chọn qua TTS_PROVIDER trong .env), căn giữa nội dung trực quan, huy hiệu thương hiệu kênh phía trên và phụ đề 1 dòng gãy gọn.
 ---
 
 # Remotion Topic Explainer Skill for Claude (50-60s Explainer Videos)
@@ -11,8 +11,10 @@ Kỹ năng này giúp Claude tự động tạo các video ngắn 50–60 giây 
 
 ## 1. Các Tính năng Cốt lõi
 1. **Visual Engine**: Remotion + TailwindCSS + Spring Physics (`spring()`) + Clamping Interpolations.
-2. **AI Voiceover**: Thư viện `edge-tts-universal` (không cần API key), cấu hình giọng đọc tiếng Việt/Anh linh hoạt qua `.env`.
-3. **Đồng bộ Thời lượng Frame-Accurate**: Script tự động đo độ dài MP3 và tính toán số frame chính xác (`durationInFrames`) cho từng phân cảnh.
+2. **AI Voiceover**: Chọn provider qua `TTS_PROVIDER` trong `.env`:
+   - `edge`: `edge-tts-universal` (online, miễn phí, không cần API key) - xuất `.mp3`.
+   - `cit`: **CIT Voice Studio** (offline, giọng tiếng Việt chất lượng phòng thu) - xuất `.wav`/`.mp3`. Tải app tại [github.com/Cuongyd196/cit-voice-studio](https://github.com/Cuongyd196/cit-voice-studio), tài liệu API: `docs/cit-voice-studio.md`.
+3. **Đồng bộ Thời lượng Frame-Accurate**: Script tự động đo độ dài audio (MP3/WAV) và tính toán số frame chính xác (`durationInFrames`) cho từng phân cảnh.
 4. **Bố cục Chuẩn Mobile**:
    - **Thương hiệu kênh**: Huy hiệu `⚡ [CHANNEL_NAME]` ở đỉnh giữa (`top: 150px`), tránh thanh tìm kiếm của TikTok/Shorts.
    - **Khối trung tâm**: Toàn bộ thẻ trích dẫn, sơ đồ luồng, biểu đồ so sánh nằm ở **chính giữa màn hình**.
@@ -23,15 +25,27 @@ Kỹ năng này giúp Claude tự động tạo các video ngắn 50–60 giây 
 
 ## 2. Cấu hình Môi trường (.env)
 
-Đảm bảo file `.env` tại thư mục gốc có các biến sau:
+Đảm bảo file `.env` tại thư mục gốc có các biến sau (đầy đủ xem `.env.example`):
 ```env
+TTS_PROVIDER=edge            # edge | cit
+TTS_OUTPUT_DIR=public/audio
+
+# Edge TTS (TTS_PROVIDER=edge)
 EDGE_TTS_VOICE=vi-VN-HoaiMyNeural
 EDGE_TTS_RATE=+10%
-EDGE_TTS_PITCH=+0Hz
-EDGE_TTS_VOLUME=+0%
-EDGE_TTS_OUTPUT_DIR=public/audio
+
+# CIT Voice Studio (TTS_PROVIDER=cit)
+CIT_TTS_BASE_URL=http://127.0.0.1:8001
+CIT_TTS_VOICE=Hải Đăng       # danh sách giọng: docs/cit-voice-studio.md hoặc GET /voices
+CIT_TTS_SPEED=1.1
+
 CHANNEL_NAME="CƯỜNG IT"
 ```
+
+**Khi `TTS_PROVIDER=cit`**:
+- App CIT Voice Studio phải đang mở. Script tự gọi `GET /health` trước khi sinh audio; nếu báo không kết nối được, nhắc người dùng mở app (hoặc tải tại [github.com/Cuongyd196/cit-voice-studio](https://github.com/Cuongyd196/cit-voice-studio)).
+- Lời thoại có thể chèn thẻ cảm xúc `[cười]`, `[thở dài]`, `[hắng giọng]` và thẻ nghỉ `[nghỉ 0.5s]` (không bị đọc thành tiếng). Không lạm dụng: tối đa 1 thẻ/cảnh.
+- Lỗi `400 Voice not found` = sai tên giọng (phân biệt dấu). Kiểm tra `CIT_TTS_VOICE`.
 
 ---
 
@@ -55,8 +69,8 @@ Khi nhận lệnh: *"Tạo video giải thích về [Chủ đề X]"*, Claude th
 ### Bước 1: Soạn kịch bản Voiceover 6 cảnh
 Soạn 6 câu thoại súc tích, tự nhiên, đánh trúng tâm lý người xem (mỗi câu 15-25 từ).
 
-### Bước 2: Sinh Voiceover với `edge-tts-universal`
-Tạo một script TypeScript (hoặc chạy qua `generate-tts.ts`) để tạo audio vào `public/audio/<TopicName>/`:
+### Bước 2: Sinh Voiceover (provider theo `TTS_PROVIDER`)
+Tạo script `scripts/generate-<topic>-audio.ts` gọi `generateTopicVoices` từ `generate-tts.ts`, chạy `npx tsx scripts/generate-<topic>-audio.ts`. Audio lưu vào `public/audio/<TopicName>/` (`.mp3` với edge, `.wav` với cit), `manifest.json` và `src/<TopicName>/audioData.ts` sinh tự động:
 ```typescript
 import { generateTopicVoices } from "./scripts/generate-tts";
 
@@ -71,6 +85,8 @@ const scenes = [
 
 await generateTopicVoices("<TopicName>", scenes);
 ```
+- Tuỳ chọn mỗi cảnh: `voice` (giọng của provider đang chọn), `rate`/`pitch`/`volume` (chỉ edge), `speed` 0.5-2.0 (chỉ cit).
+- File đã tồn tại được dùng lại (cache). Muốn sinh lại sau khi sửa lời thoại hoặc đổi giọng, xoá file audio tương ứng trước.
 
 ### Bước 3: Tạo thư mục Component `src/<TopicName>/`
 Tạo cấu trúc component:
@@ -97,6 +113,7 @@ src/<TopicName>/
 3. **Căn giữa nội dung**: `<AbsoluteFill className="flex flex-col items-center justify-center px-10 text-white">`.
 4. **Phụ đề**: Đặt `<SubtitleBox text="..." durationInFrames={d} className="mt-64" />` ngay dưới khối trung tâm.
 5. **Thời lượng cảnh**: `const d1 = audioManifest.scenes[0].durationInFrames + 3;` (Buffer snappy `+3 frames`).
+6. **Đường dẫn audio**: Luôn dùng `staticFile(audioManifest.scenes[i].audioPath)`, KHÔNG hardcode đuôi `.mp3` (provider cit xuất `.wav`).
 
 ### Bước 5: Đăng ký Composition vào `src/Root.tsx`
 Thêm `<Composition>` vào [src/Root.tsx](file:///d:/cuongit/25-26/shortvideo/public-git/remotion-cuongit-template/src/Root.tsx) với `width={1080}`, `height={1920}`, `fps={30}` và tổng `durationInFrames`.

@@ -1,7 +1,7 @@
 ---
 name: remotion-topic-explainer
 description: >-
-  Creates professional 50-60s vertical explainer videos (9:16 format, 1080x1920 @ 30fps) for any given topic using Remotion, styled with modern aesthetics and narrated by natural voiceover using edge-tts-universal. Follows remotion-dev/skills best practices for smooth springs, typography, sequence timing, and visual engagement.
+  Creates professional 50-60s vertical explainer videos (9:16 format, 1080x1920 @ 30fps) for any given topic using Remotion, styled with modern aesthetics and narrated by natural voiceover using edge-tts-universal or CIT Voice Studio (selected via TTS_PROVIDER in .env). Follows remotion-dev/skills best practices for smooth springs, typography, sequence timing, and visual engagement.
 ---
 
 # Remotion Topic Explainer Video Skill (50-60s)
@@ -10,7 +10,7 @@ This skill guides you in creating high-quality, 50–60 second short-form explai
 
 It combines:
 1. **Visual Best Practices** from `remotion-dev/skills` (frame-accurate springs, clamping interpolations, sequence composition, typography hierarchy).
-2. **AI Voiceover Synthesis** powered by `edge-tts-universal` configured via `.env` (Vietnamese, English, etc.).
+2. **AI Voiceover Synthesis** via `TTS_PROVIDER` in `.env`: `edge` (`edge-tts-universal`, online, free) or `cit` (**CIT Voice Studio**, offline Vietnamese studio voices - download at [github.com/Cuongyd196/cit-voice-studio](https://github.com/Cuongyd196/cit-voice-studio), API docs: `docs/cit-voice-studio.md`).
 3. **Exact Timing Synchronization** mapping audio voiceover lengths directly into Remotion frame sequences.
 
 ---
@@ -32,17 +32,28 @@ A captivating short video follows the **Hook-Problem-Solution-Value-Outro** fram
 
 ---
 
-## 2. TTS Voiceover Generation (`edge-tts-universal`)
+## 2. TTS Voiceover Generation (`edge` | `cit`)
 
 ### 2.1 Cấu hình Voice qua `.env`
-Đảm bảo file `.env` đã được cấu hình:
+Đảm bảo file `.env` đã được cấu hình (đầy đủ xem `.env.example`):
 ```env
+TTS_PROVIDER=edge                    # edge | cit
+TTS_OUTPUT_DIR=public/audio
+
+# Edge TTS (TTS_PROVIDER=edge)
 EDGE_TTS_VOICE=vi-VN-HoaiMyNeural    # hoặc vi-VN-NamMinhNeural, en-US-ChristopherNeural
 EDGE_TTS_RATE=+10%                   # +10% đến +15% giúp video ngắn nhịp độ nhanh cuốn hút
-EDGE_TTS_PITCH=+0Hz
-EDGE_TTS_VOLUME=+0%
-EDGE_TTS_OUTPUT_DIR=public/audio
+
+# CIT Voice Studio (TTS_PROVIDER=cit)
+CIT_TTS_BASE_URL=http://127.0.0.1:8001
+CIT_TTS_VOICE=Hải Đăng               # danh sách giọng: docs/cit-voice-studio.md hoặc GET /voices
+CIT_TTS_SPEED=1.1                    # 0.5 - 2.0
 ```
+
+**Khi `TTS_PROVIDER=cit`**:
+- App CIT Voice Studio phải đang mở. Script tự gọi `GET /health` trước khi sinh audio; nếu báo không kết nối được, nhắc người dùng mở app (hoặc tải tại [github.com/Cuongyd196/cit-voice-studio](https://github.com/Cuongyd196/cit-voice-studio)).
+- Lời thoại có thể chèn thẻ cảm xúc `[cười]`, `[thở dài]`, `[hắng giọng]` và thẻ nghỉ `[nghỉ 0.5s]` (không bị đọc thành tiếng). Không lạm dụng: tối đa 1 thẻ/cảnh.
+- Lỗi `400 Voice not found` = sai tên giọng (phân biệt dấu). Kiểm tra `CIT_TTS_VOICE`.
 
 ### 2.2 Quy trình sinh file Audio
 Khi nhận chủ đề, tạo file kịch bản voiceover và chạy script `scripts/generate-tts.ts` để sinh audio:
@@ -80,7 +91,10 @@ const scenes = [
 await generateTopicVoices("DockerShort", scenes);
 ```
 
-File âm thanh sẽ được lưu tự động vào `public/audio/<TopicName>/<sceneId>.mp3` kèm file `manifest.json` ghi lại chính xác số frame (`durationInFrames`) cho từng phân cảnh.
+File âm thanh sẽ được lưu tự động vào `public/audio/<TopicName>/<sceneId>.<ext>` (`.mp3` với edge, `.wav` với cit) kèm file `manifest.json` ghi lại chính xác số frame (`durationInFrames`) và `audioPath` cho từng phân cảnh.
+
+- Tuỳ chọn mỗi cảnh: `voice` (giọng của provider đang chọn), `rate`/`pitch`/`volume` (chỉ edge), `speed` 0.5-2.0 (chỉ cit).
+- File đã tồn tại được dùng lại (cache). Muốn sinh lại sau khi sửa lời thoại hoặc đổi giọng, xoá file audio tương ứng trước.
 
 ---
 
@@ -131,9 +145,9 @@ Mỗi scene trong Composition dùng `<Sequence>` hoặc `<Series>` để quản 
 ```tsx
 import { Audio, staticFile, Sequence } from "remotion";
 
-// Trong Scene component:
+// Trong Scene component - lấy đường dẫn từ manifest, KHÔNG hardcode đuôi .mp3 (provider cit xuất .wav):
 <Sequence from={0} durationInFrames={sceneDuration}>
-  <Audio src={staticFile(`audio/${topicName}/scene1_hook.mp3`)} />
+  <Audio src={staticFile(audioManifest.scenes[0].audioPath)} />
   <SceneContent />
 </Sequence>
 ```
@@ -168,7 +182,7 @@ const d2 = audioManifest.scenes[1].durationInFrames + 3;
 
 ---
 
-## 4. Quy trình Tạo Video Từng Bước cho Antigravity
+## 4. Quy trình Tạo Video Từng Bước cho Antigravity / Codex
 
 Khi nhận được yêu cầu: *"Tạo video giải thích về [Chủ đề X]"*:
 
@@ -177,8 +191,9 @@ Khi nhận được yêu cầu: *"Tạo video giải thích về [Chủ đề X]
 2. Viết lời thoại tiếng Việt tự nhiên, súc tích, câu ngắn (mỗi cảnh 15-30 từ).
 
 ### Bước 2: Sinh Giọng Đọc (TTS Generation)
-1. Tạo script TTS tạm hoặc gọi trực tiếp `scripts/generate-tts.ts` cho topic đó.
-2. Lấy danh sách thời lượng frame thực tế từ `manifest.json`.
+1. Đọc `TTS_PROVIDER` trong `.env` để biết đang dùng edge hay cit.
+2. Tạo script `scripts/generate-<topic>-audio.ts` gọi `generateTopicVoices`, chạy `npx tsx scripts/generate-<topic>-audio.ts`.
+3. Lấy danh sách thời lượng frame thực tế từ `manifest.json` / `src/<TopicName>/audioData.ts`.
 
 ### Bước 3: Tạo Thư mục Code `src/<TopicName>/`
 Cấu trúc thư mục chuẩn:
