@@ -9,7 +9,7 @@
 [![AI Skills](https://img.shields.io/badge/AI_Skills-Antigravity_%7C_Claude_%7C_Codex-purple?style=for-the-badge)](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-** Tự động tạo video ngắn (9:16) giải thích kiến thức với Remotion và AI.**
+**Tự động tạo video ngắn (9:16) giải thích kiến thức với Remotion và AI.**
 
 <br />
 
