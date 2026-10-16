@@ -83,12 +83,18 @@ cp .env.example .env
 
 Nội dung cấu hình trong `.env`:
 ```env
-# Giọng đọc AI Voiceover
+# Chọn giọng đọc: edge (online, miễn phí) | cit (CIT Voice Studio, offline)
+TTS_PROVIDER=edge
+TTS_OUTPUT_DIR=public/audio
+
+# Edge TTS
 EDGE_TTS_VOICE=vi-VN-HoaiMyNeural
 EDGE_TTS_RATE=+10%
-EDGE_TTS_PITCH=+0Hz
-EDGE_TTS_VOLUME=+0%
-EDGE_TTS_OUTPUT_DIR=public/audio
+
+# CIT Voice Studio
+CIT_TTS_BASE_URL=http://127.0.0.1:8001
+CIT_TTS_VOICE=Hải Đăng
+CIT_TTS_SPEED=1.1
 
 # Thương hiệu kênh (Hiển thị góc trên giữa video)
 CHANNEL_NAME="CƯỜNG IT"
@@ -108,6 +114,21 @@ Sinh giọng đọc thủ công qua terminal:
 # Sinh giọng đọc cho 1 đoạn văn bản đơn
 npm run tts -- --text "Xin chào các bạn, hôm nay chúng ta cùng tìm hiểu về Docker." public/audio/test.mp3
 ```
+
+### 🎧 Dùng giọng CIT Voice Studio (offline, chất lượng phòng thu)
+
+Muốn dùng giọng tiếng Việt của **CIT Voice Studio** (25+ giọng, chạy offline trên máy):
+
+1. Tải ứng dụng và đọc hướng dẫn cài đặt tại: **[github.com/Cuongyd196/cit-voice-studio](https://github.com/Cuongyd196/cit-voice-studio)**
+2. Mở ứng dụng (API mặc định chạy tại `http://127.0.0.1:8001`).
+3. Đặt trong `.env`:
+   ```env
+   TTS_PROVIDER=cit
+   CIT_TTS_VOICE=Hải Đăng
+   ```
+4. Chạy script sinh audio như bình thường (file xuất `.wav`).
+
+Danh sách giọng đầy đủ & tham số API: xem [docs/cit-voice-studio.md](docs/cit-voice-studio.md).
 
 ---
 

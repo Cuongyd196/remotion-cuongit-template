@@ -81,12 +81,18 @@ cp .env.example .env
 
 Configuration keys in `.env`:
 ```env
-# AI Voiceover Voice ID
+# Voice provider: edge (online, free) | cit (CIT Voice Studio, offline)
+TTS_PROVIDER=edge
+TTS_OUTPUT_DIR=public/audio
+
+# Edge TTS
 EDGE_TTS_VOICE=vi-VN-HoaiMyNeural
 EDGE_TTS_RATE=+10%
-EDGE_TTS_PITCH=+0Hz
-EDGE_TTS_VOLUME=+0%
-EDGE_TTS_OUTPUT_DIR=public/audio
+
+# CIT Voice Studio
+CIT_TTS_BASE_URL=http://127.0.0.1:8001
+CIT_TTS_VOICE=Hải Đăng
+CIT_TTS_SPEED=1.1
 
 # Channel Branding (Top Header)
 CHANNEL_NAME="CƯỜNG IT"
@@ -106,6 +112,21 @@ Generate voiceovers from CLI:
 # Generate a single narration clip
 npm run tts -- --text "Hello everyone, today we explore how Docker works." public/audio/test.mp3
 ```
+
+### 🎧 Using CIT Voice Studio voices (offline, studio quality)
+
+To use **CIT Voice Studio** Vietnamese voices (25+ voices, running offline on your machine):
+
+1. Download the app and read the setup guide at: **[github.com/Cuongyd196/cit-voice-studio](https://github.com/Cuongyd196/cit-voice-studio)**
+2. Open the app (API runs at `http://127.0.0.1:8001` by default).
+3. Set in `.env`:
+   ```env
+   TTS_PROVIDER=cit
+   CIT_TTS_VOICE=Hải Đăng
+   ```
+4. Run the audio scripts as usual (outputs `.wav`).
+
+Full voice list & API parameters: see [docs/cit-voice-studio.md](docs/cit-voice-studio.md).
 
 ---
 
