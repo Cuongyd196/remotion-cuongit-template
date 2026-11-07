@@ -6,10 +6,13 @@ import { CitVoiceStudioRepo, citVoiceStudioRepoDuration } from "./CitVoiceStudio
 import { citVoiceStudioRepoSchema } from "./CitVoiceStudioRepo/types";
 import { DevVsDevops, devVsDevopsDuration } from "./DevVsDevops/DevVsDevops";
 import { devVsDevopsSchema } from "./DevVsDevops/types";
+import { EmbedGoogleDriveVideo, embedGoogleDriveVideoDuration } from "./EmbedGoogleDriveVideo/EmbedGoogleDriveVideo";
+import { embedGoogleDriveVideoSchema } from "./EmbedGoogleDriveVideo/types";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition id="EmbedGoogleDriveVideo" component={EmbedGoogleDriveVideo} durationInFrames={embedGoogleDriveVideoDuration} fps={30} width={1080} height={1920} schema={embedGoogleDriveVideoSchema} defaultProps={{ channelName: process.env.CHANNEL_NAME || "CƯỜNG IT" }} />
       <Composition id="DevVsDevops" component={DevVsDevops} durationInFrames={devVsDevopsDuration} fps={30} width={1080} height={1920} schema={devVsDevopsSchema} defaultProps={{ channelName: process.env.CHANNEL_NAME || "CƯỜNG IT" }} />
       <Composition id="CitVoiceStudioRepo" component={CitVoiceStudioRepo} durationInFrames={citVoiceStudioRepoDuration} fps={30} width={1080} height={1920} schema={citVoiceStudioRepoSchema} defaultProps={{ channelName: process.env.CHANNEL_NAME || "CƯỜNG IT" }} />
       {/* 50s AI Voice Explainer: Docker */}
