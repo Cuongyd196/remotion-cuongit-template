@@ -15,7 +15,7 @@
 <a href="#repo-to-video"><img src="assets/skill-repo-to-video.jpg" alt="repo-to-video: giới thiệu một GitHub repo" width="32%" /></a>
 <a href="#comparison-video"><img src="assets/skill-comparison-video.jpg" alt="comparison-video: so sánh hai lựa chọn" width="32%" /></a>
 
-[Xem video mẫu trên YouTube](https://youtube.com/shorts/791T9vQ229A?si=8H17eP51gI333oA6) · [Xem trên Facebook Reels](https://facebook.com/reel/27974855735519825)
+[Xem video mẫu trên TikTok](https://www.tiktok.com/@cuongit96/video/7680218859495804180) · [Xem trên Facebook Reels](https://facebook.com/reel/27974855735519825)
 
 </div>
 
@@ -32,7 +32,8 @@
 9. [Xử lý lỗi thường gặp](#9-xử-lý-lỗi-thường-gặp)
 10. [Sử dụng có trách nhiệm](#10-sử-dụng-có-trách-nhiệm)
 11. [Cộng đồng](#11-cộng-đồng)
-12. [Giấy phép](#12-giấy-phép)
+12. [Ủng hộ](#12-ủng-hộ)
+13. [Giấy phép](#13-giấy-phép)
 
 ## 1. Tính năng
 
@@ -69,13 +70,13 @@ Copy-Item .env.example .env
 Hai biến thường cần đổi trong `.env`:
 
 ```env
-TTS_PROVIDER=edge        # edge | cit
+TTS_PROVIDER=cit         # cit | edge
 CHANNEL_NAME="TÊN KÊNH"  # hiện trên huy hiệu ở đầu video
 ```
 
 **Bước 3. Tạo video**
 
-Mở AI agent tại thư mục repo rồi gọi một skill, ví dụ trong Claude Code:
+Mặc định dùng giọng CIT Voice Studio, nên hãy [cài và mở ứng dụng](#4-giọng-đọc) trước. Sau đó mở AI agent tại thư mục repo rồi gọi một skill, ví dụ trong Claude Code:
 
 ```text
 /comparison-video Dev vs DevOps
@@ -264,7 +265,17 @@ Kết quả render và dữ liệu nghiên cứu nằm trong `out/`, thư mục 
 
 Nếu thấy hữu ích, hãy tặng repo một ⭐ trên GitHub.
 
-## 12. Giấy phép
+## 12. Ủng hộ
+
+Nếu dự án giúp ích cho bạn, bạn có thể ủng hộ tác giả (hoàn toàn tự nguyện):
+
+| Cách ủng hộ | Link |
+| :--- | :--- |
+| GitHub Sponsors | [github.com/sponsors/Cuongyd196](https://github.com/sponsors/Cuongyd196) |
+| Visa / PayPal | [buymeacoffee.com/cuongit96](https://buymeacoffee.com/cuongit96) |
+| Chuyển khoản ngân hàng Việt Nam (mã QR) | [Xem mã QR](https://buymeacoffee.com/cuongit96/gallery/5234541) |
+
+## 13. Giấy phép
 
 Mã nguồn của template phát hành theo [giấy phép MIT](LICENSE). Các phần sau theo giấy phép riêng:
 

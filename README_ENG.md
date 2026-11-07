@@ -17,7 +17,7 @@
 
 The sample videos are in Vietnamese.
 
-[Watch the sample on YouTube](https://youtube.com/shorts/1bs4prcg-Fc?feature=share) · [Watch on Facebook Reels](https://facebook.com/reel/27974855735519825)
+[Watch the sample on TikTok](https://www.tiktok.com/@cuongit96/video/7680218859495804180) · [Watch on Facebook Reels](https://facebook.com/reel/27974855735519825)
 
 </div>
 
@@ -34,7 +34,8 @@ The sample videos are in Vietnamese.
 9. [Troubleshooting](#9-troubleshooting)
 10. [Responsible Use](#10-responsible-use)
 11. [Community](#11-community)
-12. [License](#12-license)
+12. [Sponsorship](#12-sponsorship)
+13. [License](#13-license)
 
 ## 1. Features
 
@@ -71,13 +72,13 @@ Copy-Item .env.example .env
 The two variables you will usually change in `.env`:
 
 ```env
-TTS_PROVIDER=edge            # edge | cit
+TTS_PROVIDER=cit             # cit | edge
 CHANNEL_NAME="CHANNEL NAME"  # shown on the badge at the top of the video
 ```
 
 **Step 3. Create a video**
 
-Open your AI agent in the repo folder and call a skill. For example, in Claude Code:
+The default voice is CIT Voice Studio, so [install and open the app](#4-voiceover) first. Then open your AI agent in the repo folder and call a skill. For example, in Claude Code:
 
 ```text
 /comparison-video Dev vs DevOps
@@ -266,7 +267,17 @@ Renders and research data go in `out/`, which is not tracked by git.
 
 If you find this useful, please give the repo a ⭐ on GitHub.
 
-## 12. License
+## 12. Sponsorship
+
+If this project helps you, you can support the author (entirely optional):
+
+| Method | Link |
+| :--- | :--- |
+| GitHub Sponsors | [github.com/sponsors/Cuongyd196](https://github.com/sponsors/Cuongyd196) |
+| Visa / PayPal | [buymeacoffee.com/cuongit96](https://buymeacoffee.com/cuongit96) |
+| Vietnamese bank transfer (QR code) | [View QR code](https://buymeacoffee.com/cuongit96/gallery/5234541) |
+
+## 13. License
 
 The template's code is released under the [MIT License](LICENSE). These parts keep their own licenses:
 
