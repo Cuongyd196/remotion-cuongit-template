@@ -1,283 +1,274 @@
-# 🎬 Remotion AI Short Video Explainer Template
-
 <div align="center">
 
-[![Remotion](https://img.shields.io/badge/Remotion-v4.0+-blue?style=for-the-badge&logo=react)](https://www.remotion.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![Edge TTS](https://img.shields.io/badge/Edge_TTS-AI_Voiceover-brightgreen?style=for-the-badge)](https://www.npmjs.com/package/edge-tts-universal)
-[![AI Skills](https://img.shields.io/badge/AI_Skills-Antigravity_%7C_Claude_%7C_Codex-purple?style=for-the-badge)](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+# Remotion Short Video Skills
 
-**Tự động tạo video ngắn (9:16) giải thích kiến thức với Remotion và AI.**
+**Bộ skill giúp AI agent tạo video dọc 9:16 về công nghệ: giải thích chủ đề, giới thiệu GitHub repo và so sánh hai lựa chọn.**
 
-<br />
+[![Remotion](https://img.shields.io/badge/Remotion-v4-blue?style=for-the-badge&logo=react)](https://www.remotion.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![AI Skills](https://img.shields.io/badge/AI_Skills-Claude_%7C_Codex_%7C_Antigravity-purple?style=for-the-badge)](#3-skill-có-sẵn)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-<a href="https://youtube.com/shorts/791T9vQ229A?si=8H17eP51gI333oA6" target="_blank" rel="noopener noreferrer">
-  <img src="assets/demo-preview.png" alt="Demo Video Preview" width="340" style="border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" />
-</a>
+**Tiếng Việt** · [English](README_ENG.md)
 
-<p><em>Giao diện video dọc 9:16 chuẩn mobile với thương hiệu <strong>⚡ CƯỜNG IT</strong>, bố cục căn giữa và phụ đề 1 dòng</em></p>
+<a href="#remotion-topic-explainer"><img src="assets/skill-topic-explainer.jpg" alt="remotion-topic-explainer: giải thích một chủ đề công nghệ" width="32%" /></a>
+<a href="#repo-to-video"><img src="assets/skill-repo-to-video.jpg" alt="repo-to-video: giới thiệu một GitHub repo" width="32%" /></a>
+<a href="#comparison-video"><img src="assets/skill-comparison-video.jpg" alt="comparison-video: so sánh hai lựa chọn" width="32%" /></a>
 
-<p><a href="https://facebook.com/reel/27974855735519825" target="_blank" rel="noopener noreferrer"><strong>▶️ Xem Video Demo trên Reels</strong></a></p>
-
-[✨ Tính năng nổi bật](#-tính-năng-nổi-bật) • [🚀 Cài đặt nhanh](#-cài-đặt-nhanh) • [🎙️ Cấu hình Voiceover](#️-cấu-hình-giọng-đọc-edge-tts) • [🤖 Tích hợp AI Skills](#-tích-hợp-ai-skills-antigravity-claude--codex) • [🎬 Lệnh Render](#-xem-trước--render) • [💬 Cộng đồng & Hỗ trợ](#-cộng-đồng--các-mẫu-video-khác)
+[Xem video mẫu trên YouTube](https://youtube.com/shorts/791T9vQ229A?si=8H17eP51gI333oA6) · [Xem trên Facebook Reels](https://facebook.com/reel/27974855735519825)
 
 </div>
 
----
+## Mục lục
 
-## 👨‍💻 Tác giả & Kênh nội dung
-- **Tác giả:** [Cường IT (Cuongyd196)](https://www.facebook.com/cuongit96/)
-- 🎵 **TikTok:** [@cuongit96](https://www.tiktok.com/@cuongit96)
-- 🌐 **Facebook Reels:** [Cường IT Reels](https://www.facebook.com/cuongit96/reels/)
-- 👥 **Nhóm Facebook:** [facebook.com/groups/1010029065373486](https://www.facebook.com/groups/1010029065373486/)
-- 👥 **Nhóm Zalo:** [zalo.me/g/8bfeotyh5ewtkzxmp5gt](https://zalo.me/g/8bfeotyh5ewtkzxmp5gt)
+1. [Tính năng](#1-tính-năng)
+2. [Bắt đầu nhanh](#2-bắt-đầu-nhanh)
+3. [Skill có sẵn](#3-skill-có-sẵn)
+4. [Giọng đọc](#4-giọng-đọc)
+5. [Hiệu ứng âm thanh](#5-hiệu-ứng-âm-thanh)
+6. [Xem trước và render](#6-xem-trước-và-render)
+7. [Video mẫu](#7-video-mẫu)
+8. [Cấu trúc dự án](#8-cấu-trúc-dự-án)
+9. [Xử lý lỗi thường gặp](#9-xử-lý-lỗi-thường-gặp)
+10. [Sử dụng có trách nhiệm](#10-sử-dụng-có-trách-nhiệm)
+11. [Cộng đồng](#11-cộng-đồng)
+12. [Giấy phép](#12-giấy-phép)
 
+## 1. Tính năng
 
----
+- **Ba skill độc lập:** mỗi skill dùng riêng được, xoá skill này không ảnh hưởng tới skill khác.
+- **Video bằng code:** dựng hình, chuyển động và bố cục bằng React và Remotion, nên dễ sửa và dùng lại.
+- **Hai lựa chọn giọng đọc:** Edge TTS (online, miễn phí) hoặc CIT Voice Studio (offline, giọng tiếng Việt).
+- **Thời lượng theo giọng đọc:** script đo độ dài từng file audio rồi tính số frame cho từng cảnh.
+- **Hiệu ứng âm thanh sẵn dùng:** tổng hợp bằng code, tự tránh chồng tiếng khi các âm quá gần nhau.
+- **Thiết kế cho điện thoại:** khổ 1080x1920, 30fps, phụ đề một dòng, frame đầu đủ nội dung để làm thumbnail.
+- **Thông tin có nguồn:** `repo-to-video` và `comparison-video` lập bảng dữ kiện kèm nguồn trước khi viết kịch bản.
 
-## 🌟 Tính năng nổi bật
+## 2. Bắt đầu nhanh
 
-- ⚡ **Lập trình Video bằng Code (Video-as-Code):** Dựng toàn bộ animation, transition, visual effects hoàn toàn bằng React và Remotion.
-- 🎙️ **Tích hợp Giọng đọc AI Miễn phí (`edge-tts-universal`):** Tự động sinh giọng đọc tự nhiên (tiếng Việt `vi-VN-HoaiMyNeural`, `vi-VN-NamMinhNeural`, tiếng Anh, tiếng Nhật, v.v.), không cần API key.
-- ⏱️ **Đồng bộ Frame Timing chính xác (Frame-Accurate):** Tự động phân tích thời lượng file âm thanh MP3 để tính số frame khớp 100% cho từng cảnh.
-- 📱 **Thiết kế Chuẩn Mobile 9:16 (1080x1920 @ 30fps):**
-  - **Khối nội dung trung tâm (Centered Layout):** Thẻ trích dẫn, so sánh, sơ đồ luồng luôn nằm ở trọng tâm mắt nhìn.
-  - **Thương hiệu Kênh (Brand Header):** Huy hiệu `⚡ CƯỜNG IT` cố định tại `top: 150px`, an toàn tuyệt đối, không bị che bởi thanh tìm kiếm.
-  - **Phụ đề 1 Dòng (Single-Line Chunked Subtitle):** Tự động ngắt 5–7 từ/lần, cỡ chữ lớn `text-4xl`, nhảy cụm từ mượt mà theo nhịp đọc.
-  - **Nhịp chuyển cảnh nhanh (Snappy Buffer):** Độ trễ giữa các cảnh chỉ `+3 frames` (~0.1s), giữ nhịp điệu video dồn dập, giữ chân người xem.
-- 🤖 **Sẵn sàng cho AI Agent:** Tích hợp bộ Skill sẵn có cho **Google Antigravity**, **Anthropic Claude** và **ChatGPT Plus (Codex)**.
+**Yêu cầu:** Node.js bản LTS và một AI agent hỗ trợ skill (Claude Code, Codex hoặc Google Antigravity).
 
----
+**Bước 1. Cài đặt**
 
-## 📐 Cấu trúc Kịch bản Chuẩn (50–60 Giây)
-
-Video ngắn áp dụng mô hình tâm lý thu hút người xem gồm 6 phân cảnh:
-
-```
-[Scene 1: Hook (0s-5s)]       -> Gây chú ý tức thì bằng câu hỏi tò mò & Title lớn 8xl
-[Scene 2: Pain Point (5s-12s)] -> Trích dẫn nỗi đau thực tế & so sánh Local vs Server
-[Scene 3: Solution (12s-20s)]  -> Giới thiệu giải pháp cốt lõi (Container 3D Box)
-[Scene 4: Workflow (20s-29s)]  -> Quy trình hoạt động 3 bước (Dockerfile -> Image -> Run)
-[Scene 5: Benefits (29s-37s)]  -> 3 lợi ích vượt trội (Nhẹ 10x, Tiết kiệm RAM, Multi-Cloud)
-[Scene 6: Outro & CTA (37s-43s)]-> Tổng kết đắt giá + Kêu gọi Thả tim & Follow kênh
-```
-
----
-
-## 🚀 Cài đặt nhanh
-
-### 1. Clone repository & Cài đặt thư viện
 ```bash
 git clone https://github.com/Cuongyd196/remotion-cuongit-template.git
 cd remotion-cuongit-template
 npm install
 ```
 
-### 2. Thiết lập biến môi trường `.env`
-Sao chép file `.env.example` thành `.env`:
+**Bước 2. Tạo file cấu hình**
+
 ```bash
+# macOS, Linux, Git Bash
 cp .env.example .env
+
+# Windows PowerShell
+Copy-Item .env.example .env
 ```
 
-Nội dung cấu hình trong `.env`:
+Hai biến thường cần đổi trong `.env`:
+
 ```env
-# Chọn giọng đọc: edge (online, miễn phí) | cit (CIT Voice Studio, offline)
-TTS_PROVIDER=edge
-TTS_OUTPUT_DIR=public/audio
-
-# Edge TTS
-EDGE_TTS_VOICE=vi-VN-HoaiMyNeural
-EDGE_TTS_RATE=+10%
-
-# CIT Voice Studio
-CIT_TTS_BASE_URL=http://127.0.0.1:8001
-CIT_TTS_VOICE=Hải Đăng
-CIT_TTS_SPEED=1.1
-
-# Thương hiệu kênh (Hiển thị góc trên giữa video)
-CHANNEL_NAME="CƯỜNG IT"
+TTS_PROVIDER=edge        # edge | cit
+CHANNEL_NAME="TÊN KÊNH"  # hiện trên huy hiệu ở đầu video
 ```
 
----
+**Bước 3. Tạo video**
 
-## 🎙️ Cấu hình Giọng đọc Edge TTS
+Mở AI agent tại thư mục repo rồi gọi một skill, ví dụ trong Claude Code:
 
-Hỗ trợ nhiều giọng đọc AI chất lượng cao:
-- **Tiếng Việt Nữ (Truyền cảm):** `vi-VN-HoaiMyNeural`
-- **Tiếng Việt Nam (Trầm ấm, rõ ràng):** `vi-VN-NamMinhNeural`
-- **Tiếng Anh (Kể chuyện / Tin tức):** `en-US-ChristopherNeural`, `en-US-GuyNeural`, `en-US-AriaNeural`
-
-Sinh giọng đọc thủ công qua terminal:
-```bash
-# Sinh giọng đọc cho 1 đoạn văn bản đơn
-npm run tts -- --text "Xin chào các bạn, hôm nay chúng ta cùng tìm hiểu về Docker." public/audio/test.mp3
-```
-
-### 🎧 Dùng giọng CIT Voice Studio (offline, chất lượng phòng thu)
-
-Muốn dùng giọng tiếng Việt của **CIT Voice Studio** (25+ giọng, chạy offline trên máy):
-
-1. Tải ứng dụng và đọc hướng dẫn cài đặt tại: **[github.com/Cuongyd196/cit-voice-studio](https://github.com/Cuongyd196/cit-voice-studio)**
-2. Mở ứng dụng (API mặc định chạy tại `http://127.0.0.1:8001`).
-3. Đặt trong `.env`:
-   ```env
-   TTS_PROVIDER=cit
-   CIT_TTS_VOICE=Hải Đăng
-   ```
-4. Chạy script sinh audio như bình thường (file xuất `.wav`).
-
-Danh sách giọng đầy đủ & tham số API: xem [docs/cit-voice-studio.md](docs/cit-voice-studio.md).
-
----
-
-## 🤖 Tích hợp AI Skills (Antigravity, Claude & Codex)
-
-Repository đi kèm bộ Skill định nghĩa sẵn giúp AI tự động tạo video hoàn chỉnh:
-
-| Nền tảng | Đường dẫn Skill File | Cách kích hoạt |
-| :--- | :--- | :--- |
-| **Claude Extension (VS Code)** / **Claude Code** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Dùng Slash Command: `/remotion-topic-explainer [tên chủ đề]` |
-| **Anthropic Claude Desktop / Projects** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Tự động nhận diện qua Custom Skills trong Workspace. |
-| **Google Antigravity** | `.agents/skills/remotion-topic-explainer/SKILL.md` | Tự động nhận diện trong **Antigravity IDE** hoặc CLI. |
-| **ChatGPT Plus (Codex CLI / IDE / App)** | `.agents/skills/remotion-topic-explainer/SKILL.md` | Gõ `$remotion-topic-explainer [tên chủ đề]` hoặc chọn qua lệnh `/skills`. |
-
-### Cách sử dụng nhanh:
-
-**1. Trong VS Code với Claude Extension / Claude Code:**
-Gõ trực tiếp slash command:
-```bash
-/remotion-topic-explainer Docker
-/remotion-topic-explainer Kubernetes
-/remotion-topic-explainer Redis Caching
-```
-
-**2. Với ChatGPT Plus (Codex):**
-Đăng nhập Codex bằng tài khoản ChatGPT Plus, mở Codex tại thư mục repo rồi gọi skill:
-```bash
-$remotion-topic-explainer Docker
-```
-
-**3. Bằng câu lệnh tự nhiên (Natural Language Prompt):**
-> *"Tạo video ngắn 50-60s giải thích về [Chủ đề của bạn: Docker, Redis, Kubernetes, Git Rebase, WebSocket...]"*
-
-### Làm video giới thiệu GitHub repo (`repo-to-video`)
-
-Đưa link repo, AI sẽ lấy thông tin từ GitHub, lập bảng dữ kiện rồi dựng video. Skill nằm ở `.claude/skills/repo-to-video/` và `.agents/skills/repo-to-video/`.
-```bash
-# Claude Code / Claude Extension
-/repo-to-video https://github.com/remotion-dev/remotion
-
-# Codex
-$repo-to-video remotion-dev/remotion
-```
-
-### Làm video so sánh hai lựa chọn (`comparison-video`)
-
-Đưa hai lựa chọn cần so sánh, AI sẽ đọc tài liệu chính thức, lập bảng dữ kiện rồi dựng video với kết luận theo từng trường hợp. Skill nằm ở `.claude/skills/comparison-video/` và `.agents/skills/comparison-video/`.
-```bash
-# Claude Code / Claude Extension
+```text
 /comparison-video Dev vs DevOps
-
-# Codex
-$comparison-video Dev vs DevOps
 ```
 
----
+**Bước 4. Xem kết quả**
 
-### Quy trình tự động hóa của AI Agent:
-1. **Soạn kịch bản** chuẩn 6 phân cảnh (Hook, Problem, Solution, Workflow, Benefits, Outro & CTA).
-2. **Gọi script TTS** (`generate-tts.ts`) để sinh audio giọng đọc và đo chính xác frame duration cho từng cảnh.
-3. **Thiết kế visual mobile** (căn giữa nội dung, huy hiệu thương hiệu `⚡ CƯỜNG IT`, subtitle 1 dòng gãy gọn).
-4. **Code React Remotion** với animation spring nảy mượt mà và đăng ký Composition vào `src/Root.tsx`.
-
-
----
-
-## 🎬 Xem trước & Render
-
-### 1. Khởi chạy Remotion Preview Studio
 ```bash
 npm run dev
 ```
-Mở trình duyệt tại **[http://localhost:3000](http://localhost:3000)** để xem và tinh chỉnh timeline theo thời gian thực.
 
-### 2. Render ảnh tĩnh (Still Thumbnail)
-```bash
-npx remotion still DockerExplainer out/preview.png --frame 200
+Mở [http://localhost:3000](http://localhost:3000) để xem video, rồi nghe lại toàn bộ và kiểm tra nội dung trước khi đăng.
+
+## 3. Skill có sẵn
+
+| Skill | Dùng khi | Đầu vào | Kết quả |
+| :--- | :--- | :--- | :--- |
+| `remotion-topic-explainer` | Giải thích một chủ đề công nghệ | Tên chủ đề | Video 50-60s, 6 cảnh |
+| `repo-to-video` | Giới thiệu một GitHub repo | Link GitHub hoặc `owner/repo` | Video 50-60s kèm ảnh chụp repo và bảng dữ kiện |
+| `comparison-video` | So sánh hai lựa chọn | `A vs B` | Video 50-60s, có kết luận chọn bên nào khi nào, kèm bảng dữ kiện |
+
+### Cách gọi skill
+
+| Công cụ | Thư mục skill | Cách gọi |
+| :--- | :--- | :--- |
+| Claude Code, Claude trong VS Code | `.claude/skills/` | `/tên-skill nội dung` |
+| Codex (ChatGPT Plus) | `.agents/skills/` | `$tên-skill nội dung`, hoặc chọn qua `/skills` |
+| Google Antigravity | `.agents/skills/` | Tự nhận diện trong IDE hoặc CLI |
+
+Bạn cũng có thể viết bằng câu bình thường, ví dụ: *"Làm video ngắn so sánh Dev và DevOps"*.
+
+### `remotion-topic-explainer`
+
+```text
+/remotion-topic-explainer Docker
+/remotion-topic-explainer Redis Caching
 ```
 
-### 3. Xuất Video MP4 hoàn chỉnh
-```bash
-npx remotion render DockerExplainer out/DockerExplainer.mp4
+Kịch bản gồm 6 cảnh: Hook, Vấn đề, Giải pháp, Quy trình, Lợi ích, Kết và kêu gọi theo dõi.
+
+### `repo-to-video`
+
+```text
+/repo-to-video https://github.com/remotion-dev/remotion
 ```
 
----
+- Chỉ đọc thông tin repo qua GitHub API và chụp trang repo, không clone hay chạy code của repo đó.
+- Lập `facts.md` để mỗi câu thoại truy được về dữ liệu của repo.
+- Nói rõ trong video nếu repo đã archive, chưa khai báo license hoặc lâu chưa cập nhật.
 
-## 📂 Cấu trúc Thư mục Dự án
+### `comparison-video`
+
+```text
+/comparison-video Dev vs DevOps
+/comparison-video PostgreSQL vs MySQL
+```
+
+- Ưu tiên tài liệu chính thức, không tự đặt số liệu.
+- Hai bên có thời lượng và bố cục tương đương. Bên đang được nhắc sẽ sáng, bên còn lại mờ đi.
+- Kết luận theo điều kiện: "Chọn A khi..., chọn B khi...". Nếu hai bên bổ trợ nhau, video sẽ nói rõ và so sánh theo vai trò.
+
+## 4. Giọng đọc
+
+Chọn bằng biến `TTS_PROVIDER` trong `.env`.
+
+| | Edge TTS (`edge`) | CIT Voice Studio (`cit`) |
+| :--- | :--- | :--- |
+| Chạy ở đâu | Online | Offline, trên máy bạn |
+| Chi phí | Miễn phí, không cần API key | Miễn phí |
+| Cài thêm | Không | Có |
+| Định dạng | `.mp3` | `.wav` |
+
+**Edge TTS**
+
+Giọng tiếng Việt: `vi-VN-HoaiMyNeural`, `vi-VN-NamMinhNeural`. Giọng tiếng Anh: `en-US-ChristopherNeural`, `en-US-GuyNeural`, `en-US-AriaNeural`.
+
+```bash
+npm run tts -- --text "Xin chào các bạn." public/audio/test.mp3
+```
+
+**CIT Voice Studio**
+
+1. Tải và cài ứng dụng tại [github.com/Cuongyd196/cit-voice-studio](https://github.com/Cuongyd196/cit-voice-studio).
+2. Mở ứng dụng, mặc định API chạy ở `http://127.0.0.1:8001`.
+3. Đặt trong `.env`:
+
+```env
+TTS_PROVIDER=cit
+CIT_TTS_VOICE=Hải Đăng
+```
+
+Danh sách giọng và tham số API: [docs/cit-voice-studio.md](docs/cit-voice-studio.md).
+
+## 5. Hiệu ứng âm thanh
+
+Dùng component `SfxTrack`, truyền vào frame và tên âm thanh:
+
+```tsx
+import { SfxTrack } from "../sfx/SfxTrack";
+
+<SfxTrack cues={[{ frame: 0, sound: "mallet" }, { frame: 45, sound: "pop" }]} />
+```
+
+| Âm thanh | Gợi ý dùng |
+| :--- | :--- |
+| `mallet` | Chuyển cảnh |
+| `pop`, `tick` | Thẻ hoặc mục xuất hiện |
+| `ding` | Điểm nhấn, kết luận |
+| `chime` | Lời kêu gọi theo dõi |
+
+`SfxTrack` tự bỏ hiệu ứng nếu cách hiệu ứng trước dưới 0,4 giây, và giảm âm lượng khi một âm lặp ngay sau chính nó. File âm thanh nằm trong `public/sfx/`, tạo lại bằng `npx tsx scripts/generate-sfx.ts`.
+
+## 6. Xem trước và render
+
+```bash
+# Xem trước trong Remotion Studio
+npm run dev
+
+# Xuất một ảnh tĩnh, ví dụ frame đầu để kiểm tra thumbnail
+npx remotion still DevVsDevops out/thumbnail.png --frame=0
+
+# Xuất video MP4
+npx remotion render DevVsDevops out/DevVsDevops.mp4
+```
+
+## 7. Video mẫu
+
+| Composition | Tạo từ | Nội dung |
+| :--- | :--- | :--- |
+| `DevVsDevops` | `comparison-video` | So sánh Dev và DevOps |
+| `CitVoiceStudioRepo` | `repo-to-video` | Giới thiệu repo CIT Voice Studio |
+| `DockerExplainer` | `remotion-topic-explainer` | Giải thích Docker |
+
+## 8. Cấu trúc dự án
 
 ```text
 remotion-cuongit-template/
-├── .agents/skills/          # AI Skill cho Google Antigravity & Codex (ChatGPT Plus)
-├── .claude/skills/          # AI Skill cho Anthropic Claude
-├── .env.example             # File mẫu cấu hình biến môi trường
+├── .claude/skills/       # Skill cho Claude
+├── .agents/skills/       # Skill cho Codex và Google Antigravity
+├── docs/                 # Tài liệu API của CIT Voice Studio
 ├── public/
-│   └── audio/               # Thư mục lưu trữ voiceover MP3 được sinh ra
+│   ├── audio/            # Giọng đọc của từng video
+│   ├── fonts/            # Font Be Vietnam Pro và giấy phép
+│   ├── repos/            # Ảnh dùng cho video giới thiệu repo
+│   └── sfx/              # Hiệu ứng âm thanh
 ├── scripts/
-│   ├── generate-tts.ts      # Engine sinh Voiceover TTS tự động & tính frame
-│   └── generate-docker-audio.ts # Kịch bản mẫu cho Docker
+│   ├── generate-tts.ts   # Sinh giọng đọc, đo thời lượng, ghi manifest
+│   └── generate-sfx.ts   # Tổng hợp hiệu ứng âm thanh
 ├── src/
-│   ├── DockerExplainer/     # Composition video giải thích Docker
-│   │   ├── DockerExplainer.tsx  # Sequence Master & Animated Background
-│   │   ├── types.ts             # Schema & Props
-│   │   ├── audioData.ts         # Metadata thời lượng audio từng cảnh
-│   │   ├── components/
-│   │   │   ├── BrandHeader.tsx  # Huy hiệu kênh CƯỜNG IT (top: 150px)
-│   │   │   └── SubtitleBox.tsx  # Subtitle 1 dòng (5-7 từ/lần, mt-64)
-│   │   └── scenes/
-│   │       ├── Scene1Hook.tsx
-│   │       ├── Scene2Problem.tsx
-│   │       ├── Scene3Container.tsx
-│   │       ├── Scene4ImageDockerfile.tsx
-│   │       ├── Scene5Benefits.tsx
-│   │       └── Scene6Outro.tsx
-│   ├── Root.tsx             # Đăng ký Composition Remotion
-│   └── index.css            # TailwindCSS styles
-└── remotion.config.ts       # Cấu hình render Remotion
+│   ├── sfx/              # Component SfxTrack
+│   ├── <TenVideo>/       # Mỗi video một thư mục
+│   └── Root.tsx          # Đăng ký các video
+└── remotion.config.ts
 ```
 
----
+Kết quả render và dữ liệu nghiên cứu nằm trong `out/`, thư mục này không được đưa lên git.
 
-## 💬 Cộng đồng & Các mẫu Video khác
+## 9. Xử lý lỗi thường gặp
 
-### 🎬 Xem các mẫu tạo video khác tại:
-- Link repo tạo video từ 1 đường Link/Bài viết: 🔗 [github.com/Cuongyd196/auto-video-gen](https://github.com/Cuongyd196/auto-video-gen)
-- Link tạo video so sánh kiến thức: 🔗 [github.com/Cuongyd196/auto-compare-video](https://github.com/Cuongyd196/auto-compare-video)
+| Lỗi | Nguyên nhân và cách xử lý |
+| :--- | :--- |
+| Edge TTS báo `403` | Máy chủ Edge từ chối yêu cầu. Thử lại ở mạng khác, hoặc chuyển sang `TTS_PROVIDER=cit`. |
+| Không kết nối được CIT Voice Studio | Mở ứng dụng, rồi kiểm tra `CIT_TTS_BASE_URL`. |
+| `400 Voice not found` | Sai tên giọng, tên có phân biệt dấu. Kiểm tra `CIT_TTS_VOICE`. |
+| Sửa lời thoại nhưng giọng không đổi | File audio cũ đang được dùng lại. Xoá file của cảnh đó rồi sinh lại. |
+| Một từ bị đọc sai hoặc đọc lặp | Viết lại câu để bỏ từ đó khỏi lời thoại, vẫn giữ trên màn hình. Hay gặp với tên tiếng Anh kèm số. |
+| Không có `audioData.ts` | Tạo thư mục `src/<TenVideo>/` trước khi chạy script sinh giọng. |
 
-### 🤝 Tham gia cộng đồng:
-Mình tạo nhóm này cho các bạn trao đổi về Làm Video với AI nhé.  
-Với các repo mình công khai, có vướng mắc mình sẽ giải đáp cho các bạn.
+## 10. Sử dụng có trách nhiệm
 
-- 👥 Nhóm trên Facebook: [facebook.com/groups/1010029065373486](https://www.facebook.com/groups/1010029065373486/)
-- 👥 Nhóm trên Zalo: [zalo.me/g/8bfeotyh5ewtkzxmp5gt](https://zalo.me/g/8bfeotyh5ewtkzxmp5gt)
+- **Kiểm tra trước khi đăng:** AI có thể viết sai thông tin hoặc đọc sai từ. Bạn chịu trách nhiệm về nội dung mình đăng.
+- **Giọng nói:** chỉ nhân bản giọng của bạn hoặc giọng đã được cho phép, và ghi rõ khi dùng giọng AI mô phỏng người thật.
+- **Nội dung của bên thứ ba:** kiểm tra quyền sử dụng trước khi đưa logo, ảnh hay ảnh chụp sản phẩm của người khác vào video.
 
-⭐ **Nếu hữu ích với các bạn thì cho mình 1 star GitHub nhé 🌟**
+## 11. Cộng đồng
 
----
+**Tác giả:** [Cường IT (Cuongyd196)](https://www.facebook.com/cuongit96/) · [TikTok](https://www.tiktok.com/@cuongit96) · [Facebook Reels](https://www.facebook.com/cuongit96/reels/)
 
-## 📄 Giấy phép (License)
+**Trao đổi về làm video với AI:** [Nhóm Facebook](https://www.facebook.com/groups/1010029065373486/) · [Nhóm Zalo](https://zalo.me/g/8bfeotyh5ewtkzxmp5gt)
 
-Mã nguồn template này phát hành theo [giấy phép MIT](LICENSE). MIT chỉ áp dụng cho mã nguồn của template, không áp dụng cho các phần sau, vốn theo giấy phép riêng:
+**Dự án liên quan:**
 
-- **Remotion**: xem lưu ý bên dưới.
-- **Font Be Vietnam Pro** trong `public/fonts/`: giấy phép SIL OFL 1.1, xem [OFL.txt](public/fonts/OFL.txt).
+- [auto-video-gen](https://github.com/Cuongyd196/auto-video-gen): tạo video từ đường link hoặc bài viết.
+- [auto-compare-video](https://github.com/Cuongyd196/auto-compare-video): tạo video so sánh kiến thức.
+- [cit-voice-studio](https://github.com/Cuongyd196/cit-voice-studio): chuyển văn bản tiếng Việt thành giọng nói, chạy trên máy bạn.
 
-> [!IMPORTANT]
-> **Lưu ý về Giấy phép của Remotion:**  
-> Remotion áp dụng chính sách giấy phép đặc biệt và yêu cầu phải có giấy phép doanh nghiệp (Company License) trong một số trường hợp nhất định (đối với các công ty/tổ chức thương mại vượt quá quy mô/doanh thu quy định).
-> 
-> Vui lòng tham khảo chi tiết tại trang: [Remotion LICENSE](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+Nếu thấy hữu ích, hãy tặng repo một ⭐ trên GitHub.
 
-> **Remotion License Notice:**  
-> Be aware of that Remotion has a special license and requires obtaining a company license in some cases. Read the [LICENSE](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md) page for more information.
+## 12. Giấy phép
+
+Mã nguồn của template phát hành theo [giấy phép MIT](LICENSE). Các phần sau theo giấy phép riêng:
+
+- **Remotion:** một số công ty phải mua giấy phép Company License. Xem chi tiết tại [Remotion LICENSE](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+- **Font Be Vietnam Pro:** giấy phép SIL OFL 1.1, xem [public/fonts/OFL.txt](public/fonts/OFL.txt).
+
+File âm thanh trong `public/sfx/` được tổng hợp bằng `scripts/generate-sfx.ts`.

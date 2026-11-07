@@ -1,275 +1,276 @@
-# 🎬 Remotion AI Short Video Explainer Template
-
 <div align="center">
 
-[![Remotion](https://img.shields.io/badge/Remotion-v4.0+-blue?style=for-the-badge&logo=react)](https://www.remotion.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![Edge TTS](https://img.shields.io/badge/Edge_TTS-AI_Voiceover-brightgreen?style=for-the-badge)](https://www.npmjs.com/package/edge-tts-universal)
-[![AI Skills](https://img.shields.io/badge/AI_Skills-Antigravity_%7C_Claude_%7C_Codex-purple?style=for-the-badge)](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+# Remotion Short Video Skills
 
-**Automated (9:16) vertical video generation framework for tech & coding explainers using React, Remotion, and AI Voiceover.**
+**Skills that let AI agents create 9:16 vertical tech videos: explain a topic, showcase a GitHub repo, or compare two options.**
 
-<br />
+[![Remotion](https://img.shields.io/badge/Remotion-v4-blue?style=for-the-badge&logo=react)](https://www.remotion.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![AI Skills](https://img.shields.io/badge/AI_Skills-Claude_%7C_Codex_%7C_Antigravity-purple?style=for-the-badge)](#3-available-skills)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-<a href="https://youtube.com/shorts/1bs4prcg-Fc?feature=share" target="_blank" rel="noopener noreferrer">
-  <img src="assets/demo-preview.png" alt="Demo Video Preview" width="340" style="border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" />
-</a>
+[Tiếng Việt](README.md) · **English**
 
-<p><em>Mobile-first 9:16 vertical layout with <strong>⚡ CƯỜNG IT</strong> brand header, centered core visual & single-line subtitle</em></p>
+<a href="#remotion-topic-explainer"><img src="assets/skill-topic-explainer-en.jpg" alt="remotion-topic-explainer: explain a tech topic" width="32%" /></a>
+<a href="#repo-to-video"><img src="assets/skill-repo-to-video-en.jpg" alt="repo-to-video: showcase a GitHub repo" width="32%" /></a>
+<a href="#comparison-video"><img src="assets/skill-comparison-video-en.jpg" alt="comparison-video: compare two options" width="32%" /></a>
 
-<p><a href="https://facebook.com/reel/27974855735519825" target="_blank" rel="noopener noreferrer"><strong>▶️ Watch Demo Video on Reels</strong></a></p>
+The sample videos are in Vietnamese.
 
-[✨ Key Features](#-key-features) • [🚀 Quickstart](#-quickstart) • [🎙️ Voiceover Config](#️-edge-tts-voiceover-configuration) • [🤖 AI Skills Integration](#-ai-skills-integration-antigravity-claude--codex) • [🎬 Preview & Render](#-preview--rendering) • [💬 Community & More](#-community--more-video-templates)
+[Watch the sample on YouTube](https://youtube.com/shorts/1bs4prcg-Fc?feature=share) · [Watch on Facebook Reels](https://facebook.com/reel/27974855735519825)
 
 </div>
 
----
+## Table of Contents
 
-## 👨‍💻 Author & Channels
-- **Author:** [Cuong IT (Cuongyd196)](https://www.facebook.com/cuongit96/)
-- 🎵 **TikTok:** [@cuongit96](https://www.tiktok.com/@cuongit96)
-- 🌐 **Facebook Reels:** [Cuong IT Reels](https://www.facebook.com/cuongit96/reels/)
-- 👥 **Facebook Group:** [facebook.com/groups/1010029065373486](https://www.facebook.com/groups/1010029065373486/)
-- 👥 **Zalo Group:** [zalo.me/g/8bfeotyh5ewtkzxmp5gt](https://zalo.me/g/8bfeotyh5ewtkzxmp5gt)
+1. [Features](#1-features)
+2. [Quickstart](#2-quickstart)
+3. [Available Skills](#3-available-skills)
+4. [Voiceover](#4-voiceover)
+5. [Sound Effects](#5-sound-effects)
+6. [Preview and Render](#6-preview-and-render)
+7. [Sample Videos](#7-sample-videos)
+8. [Project Structure](#8-project-structure)
+9. [Troubleshooting](#9-troubleshooting)
+10. [Responsible Use](#10-responsible-use)
+11. [Community](#11-community)
+12. [License](#12-license)
 
+## 1. Features
 
----
+- **Three independent skills:** each works on its own, and removing one does not affect the others.
+- **Video as code:** visuals, motion and layout are built with React and Remotion, so they are easy to edit and reuse.
+- **Two voice options:** Edge TTS (online, free) or CIT Voice Studio (offline, Vietnamese voices).
+- **Timing driven by the voice:** a script measures each audio file and calculates the frames for each scene.
+- **Ready-to-use sound effects:** synthesized in code, and spaced automatically so they do not clash.
+- **Built for phones:** 1080x1920 at 30fps, single-line captions, and a complete first frame that works as a thumbnail.
+- **Sourced information:** `repo-to-video` and `comparison-video` build a fact sheet with sources before writing the script.
 
-## 🌟 Key Features
+## 2. Quickstart
 
-- ⚡ **Video-as-Code:** Build full animations, transitions, and motion graphics entirely in React and Remotion.
-- 🎙️ **Free AI Voiceover (`edge-tts-universal`):** Automatically generate natural narration (Vietnamese `vi-VN-HoaiMyNeural`, `vi-VN-NamMinhNeural`, English, Japanese, etc.) without requiring paid API keys.
-- ⏱️ **Frame-Accurate Synchronization:** Directly measures MP3 durations to compute frame counts (`durationInFrames`) for each scene with zero desync.
-- 📱 **Mobile-First 9:16 Design (1080x1920 @ 30fps):**
-  - **Centered Layout:** Hero cards, comparisons, and flowcharts stay vertically centered in viewer eye-lines.
-  - **Brand Header:** `⚡ CƯỜNG IT` badge fixed at `top: 150px`, staying clear of platform search bars.
-  - **Single-Line Subtitle:** Auto-chunked into 5–7 words per phrase, `text-4xl` font, synchronized to spoken audio.
-  - **Snappy Transitions:** Only `+3 frames` buffer between scenes keeps the video fast-paced and engaging.
-- 🤖 **AI-Agent Ready:** Includes pre-built custom skills for **Google Antigravity**, **Anthropic Claude** and **ChatGPT Plus (Codex)**.
+**Requirements:** a Node.js LTS release and an AI agent that supports skills (Claude Code, Codex or Google Antigravity).
 
----
+**Step 1. Install**
 
-## 📐 6-Scene Narrative Framework (50–60s)
-
-```
-[Scene 1: Hook (0s-5s)]       -> Capture instant attention with a bold question & 8xl title
-[Scene 2: Pain Point (5s-12s)] -> Relatable dilemma & comparison (Local Machine vs Server Crash)
-[Scene 3: Solution (12s-20s)]  -> Introduce core concept (All-in-one Container Box)
-[Scene 4: Workflow (20s-29s)]  -> 3-step lifecycle diagram (Dockerfile -> Image -> Container)
-[Scene 5: Benefits (29s-37s)]  -> 3 key advantages (10x Lighter, Resource-efficient, Multi-Cloud)
-[Scene 6: Outro & CTA (37s-43s)]-> Key takeaway + Like & Follow call-to-action
-```
-
----
-
-## 🚀 Quickstart
-
-### 1. Clone & Install
 ```bash
 git clone https://github.com/Cuongyd196/remotion-cuongit-template.git
 cd remotion-cuongit-template
 npm install
 ```
 
-### 2. Configure Environment Variables
-Copy `.env.example` to `.env`:
+**Step 2. Create the config file**
+
 ```bash
+# macOS, Linux, Git Bash
 cp .env.example .env
+
+# Windows PowerShell
+Copy-Item .env.example .env
 ```
 
-Configuration keys in `.env`:
+The two variables you will usually change in `.env`:
+
 ```env
-# Voice provider: edge (online, free) | cit (CIT Voice Studio, offline)
-TTS_PROVIDER=edge
-TTS_OUTPUT_DIR=public/audio
-
-# Edge TTS
-EDGE_TTS_VOICE=vi-VN-HoaiMyNeural
-EDGE_TTS_RATE=+10%
-
-# CIT Voice Studio
-CIT_TTS_BASE_URL=http://127.0.0.1:8001
-CIT_TTS_VOICE=Hải Đăng
-CIT_TTS_SPEED=1.1
-
-# Channel Branding (Top Header)
-CHANNEL_NAME="CƯỜNG IT"
+TTS_PROVIDER=edge            # edge | cit
+CHANNEL_NAME="CHANNEL NAME"  # shown on the badge at the top of the video
 ```
 
----
+**Step 3. Create a video**
 
-## 🎙️ Edge TTS Voiceover Configuration
+Open your AI agent in the repo folder and call a skill. For example, in Claude Code:
 
-Popular AI voices supported out-of-the-box:
-- **Vietnamese Female:** `vi-VN-HoaiMyNeural`
-- **Vietnamese Male:** `vi-VN-NamMinhNeural`
-- **English:** `en-US-ChristopherNeural`, `en-US-GuyNeural`, `en-US-AriaNeural`
-
-Generate voiceovers from CLI:
-```bash
-# Generate a single narration clip
-npm run tts -- --text "Hello everyone, today we explore how Docker works." public/audio/test.mp3
-```
-
-### 🎧 Using CIT Voice Studio voices (offline, studio quality)
-
-To use **CIT Voice Studio** Vietnamese voices (25+ voices, running offline on your machine):
-
-1. Download the app and read the setup guide at: **[github.com/Cuongyd196/cit-voice-studio](https://github.com/Cuongyd196/cit-voice-studio)**
-2. Open the app (API runs at `http://127.0.0.1:8001` by default).
-3. Set in `.env`:
-   ```env
-   TTS_PROVIDER=cit
-   CIT_TTS_VOICE=Hải Đăng
-   ```
-4. Run the audio scripts as usual (outputs `.wav`).
-
-Full voice list & API parameters: see [docs/cit-voice-studio.md](docs/cit-voice-studio.md).
-
----
-
-## 🤖 AI Skills Integration (Antigravity, Claude & Codex)
-
-The repository provides ready-to-use skill definitions for automated video production:
-
-| AI Platform | Skill File Location | Activation Method |
-| :--- | :--- | :--- |
-| **Claude Extension (VS Code)** / **Claude Code** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Use Slash Command: `/remotion-topic-explainer [topic name]` |
-| **Anthropic Claude Desktop / Projects** | `.claude/skills/remotion-topic-explainer/SKILL.md` | Auto-detected via Workspace Custom Skills. |
-| **Google Antigravity** | `.agents/skills/remotion-topic-explainer/SKILL.md` | Auto-detected in **Antigravity IDE** and CLI. |
-| **ChatGPT Plus (Codex CLI / IDE / App)** | `.agents/skills/remotion-topic-explainer/SKILL.md` | Type `$remotion-topic-explainer [topic name]` or pick it via `/skills`. |
-
-### Quick Usage:
-
-**1. Inside VS Code with Claude Extension / Claude Code:**
-Type the slash command directly:
-```bash
-/remotion-topic-explainer Docker
-/remotion-topic-explainer Kubernetes
-/remotion-topic-explainer Redis Caching
-```
-
-**2. With ChatGPT Plus (Codex):**
-Sign in to Codex with your ChatGPT Plus account, open Codex in the repo folder and invoke the skill:
-```bash
-$remotion-topic-explainer Docker
-```
-
-**3. Natural Language Prompt:**
-> *"Create a 50-60s vertical explainer video about [Your Topic: e.g. Docker, Redis, Kubernetes, Git Rebase, WebSocket]"*
-
-### Showcase a GitHub repo (`repo-to-video`)
-
-Give it a repo link and the AI reads the repo's data from GitHub, builds a fact sheet, then produces the video. The skill lives in `.claude/skills/repo-to-video/` and `.agents/skills/repo-to-video/`.
-```bash
-# Claude Code / Claude Extension
-/repo-to-video https://github.com/remotion-dev/remotion
-
-# Codex
-$repo-to-video remotion-dev/remotion
-```
-
-### Compare two options (`comparison-video`)
-
-Name two options and the AI reads their official docs, builds a fact sheet, then produces a video that ends with when to pick each one. The skill lives in `.claude/skills/comparison-video/` and `.agents/skills/comparison-video/`.
-```bash
-# Claude Code / Claude Extension
+```text
 /comparison-video Dev vs DevOps
-
-# Codex
-$comparison-video Dev vs DevOps
 ```
 
----
+**Step 4. Check the result**
 
-### Automated Agent Workflow:
-1. **Drafts structured 6-scene script** (Hook, Problem, Solution, Workflow, Benefits, Outro & CTA).
-2. **Runs TTS generator** (`generate-tts.ts`) to produce voiceover audio and calculate frame-accurate timings.
-3. **Applies mobile-first visual standards** (centered content, `⚡ CƯỜNG IT` brand header, single-line chunked subtitles).
-4. **Builds Remotion React components** with spring motion physics and registers the Composition in `src/Root.tsx`.
-
-
----
-
-## 🎬 Preview & Rendering
-
-### 1. Launch Remotion Studio
 ```bash
 npm run dev
 ```
-Open **[http://localhost:3000](http://localhost:3000)** in your browser for real-time visual timeline editing.
 
-### 2. Render Still Thumbnail
-```bash
-npx remotion still DockerExplainer out/preview.png --frame 200
+Open [http://localhost:3000](http://localhost:3000) to watch the video, then listen to all of it and check the content before you publish.
+
+## 3. Available Skills
+
+| Skill | Use it to | Input | Output |
+| :--- | :--- | :--- | :--- |
+| `remotion-topic-explainer` | Explain a tech topic | Topic name | 50-60s video with 6 scenes |
+| `repo-to-video` | Showcase a GitHub repo | GitHub link or `owner/repo` | 50-60s video with a repo screenshot and a fact sheet |
+| `comparison-video` | Compare two options | `A vs B` | 50-60s video that ends with when to pick each one, plus a fact sheet |
+
+### Calling a skill
+
+| Tool | Skill folder | How to call |
+| :--- | :--- | :--- |
+| Claude Code, Claude in VS Code | `.claude/skills/` | `/skill-name input` |
+| Codex (ChatGPT Plus) | `.agents/skills/` | `$skill-name input`, or pick it via `/skills` |
+| Google Antigravity | `.agents/skills/` | Detected automatically in the IDE or CLI |
+
+You can also ask in plain language, such as *"Make a short video comparing Dev and DevOps"*.
+
+### `remotion-topic-explainer`
+
+```text
+/remotion-topic-explainer Docker
+/remotion-topic-explainer Redis Caching
 ```
 
-### 3. Render Final MP4 Video
-```bash
-npx remotion render DockerExplainer out/DockerExplainer.mp4
+The script has 6 scenes: Hook, Problem, Solution, Workflow, Benefits, and Outro with a call to action.
+
+### `repo-to-video`
+
+```text
+/repo-to-video https://github.com/remotion-dev/remotion
 ```
 
----
+- Reads repo data through the GitHub API and takes a screenshot of the repo page. It does not clone or run the repo's code.
+- Builds `facts.md` so every spoken line traces back to the repo's data.
+- Says so in the video if the repo is archived, declares no license, or has not been updated for a long time.
 
-## 📂 Project Structure
+### `comparison-video`
+
+```text
+/comparison-video Dev vs DevOps
+/comparison-video PostgreSQL vs MySQL
+```
+
+- Prefers official documentation and never makes up numbers.
+- Gives both sides similar time and the same layout. The side being discussed lights up while the other dims.
+- Concludes by condition: "Pick A when..., pick B when...". If the two complement each other, the video says so and compares their roles.
+
+## 4. Voiceover
+
+Choose with the `TTS_PROVIDER` variable in `.env`.
+
+| | Edge TTS (`edge`) | CIT Voice Studio (`cit`) |
+| :--- | :--- | :--- |
+| Runs | Online | Offline, on your machine |
+| Cost | Free, no API key | Free |
+| Extra install | No | Yes |
+| Format | `.mp3` | `.wav` |
+
+**Edge TTS**
+
+Vietnamese voices: `vi-VN-HoaiMyNeural`, `vi-VN-NamMinhNeural`. English voices: `en-US-ChristopherNeural`, `en-US-GuyNeural`, `en-US-AriaNeural`.
+
+```bash
+npm run tts -- --text "Hello everyone." public/audio/test.mp3
+```
+
+**CIT Voice Studio**
+
+1. Download and install the app from [github.com/Cuongyd196/cit-voice-studio](https://github.com/Cuongyd196/cit-voice-studio).
+2. Open the app. Its API runs at `http://127.0.0.1:8001` by default.
+3. Set in `.env`:
+
+```env
+TTS_PROVIDER=cit
+CIT_TTS_VOICE=Hải Đăng
+```
+
+Voice list and API parameters: [docs/cit-voice-studio.md](docs/cit-voice-studio.md).
+
+## 5. Sound Effects
+
+Use the `SfxTrack` component with a frame and a sound name:
+
+```tsx
+import { SfxTrack } from "../sfx/SfxTrack";
+
+<SfxTrack cues={[{ frame: 0, sound: "mallet" }, { frame: 45, sound: "pop" }]} />
+```
+
+| Sound | Suggested use |
+| :--- | :--- |
+| `mallet` | Scene changes |
+| `pop`, `tick` | A card or item appears |
+| `ding` | Emphasis, conclusions |
+| `chime` | Call to action |
+
+`SfxTrack` drops an effect that starts within 0.4 seconds of the previous one, and lowers the volume when a sound repeats right after itself. The files live in `public/sfx/`. Regenerate them with `npx tsx scripts/generate-sfx.ts`.
+
+## 6. Preview and Render
+
+```bash
+# Preview in Remotion Studio
+npm run dev
+
+# Export a still, such as the first frame to check the thumbnail
+npx remotion still DevVsDevops out/thumbnail.png --frame=0
+
+# Export the MP4
+npx remotion render DevVsDevops out/DevVsDevops.mp4
+```
+
+## 7. Sample Videos
+
+| Composition | Made with | Content |
+| :--- | :--- | :--- |
+| `DevVsDevops` | `comparison-video` | Compares Dev and DevOps |
+| `CitVoiceStudioRepo` | `repo-to-video` | Showcases the CIT Voice Studio repo |
+| `DockerExplainer` | `remotion-topic-explainer` | Explains Docker |
+
+## 8. Project Structure
 
 ```text
 remotion-cuongit-template/
-├── .agents/skills/          # Google Antigravity & Codex (ChatGPT Plus) Skill
-├── .claude/skills/          # Anthropic Claude Custom Skill
-├── .env.example             # Environment variable template
+├── .claude/skills/       # Skills for Claude
+├── .agents/skills/       # Skills for Codex and Google Antigravity
+├── docs/                 # CIT Voice Studio API docs
 ├── public/
-│   └── audio/               # Generated MP3 voiceover files
+│   ├── audio/            # Voiceover for each video
+│   ├── fonts/            # Be Vietnam Pro font and its license
+│   ├── repos/            # Images for repo showcase videos
+│   └── sfx/              # Sound effects
 ├── scripts/
-│   ├── generate-tts.ts      # Automated TTS generator & frame calculator
-│   └── generate-docker-audio.ts # Example Docker narration script
+│   ├── generate-tts.ts   # Generates voiceover, measures duration, writes the manifest
+│   └── generate-sfx.ts   # Synthesizes the sound effects
 ├── src/
-│   ├── DockerExplainer/     # Docker Explainer Composition
-│   │   ├── DockerExplainer.tsx  # Master sequence & animated glows
-│   │   ├── types.ts             # Schema & Props
-│   │   ├── audioData.ts         # Audio frame duration metadata
-│   │   ├── components/
-│   │   │   ├── BrandHeader.tsx  # Channel Brand Badge (top: 150px)
-│   │   │   └── SubtitleBox.tsx  # Single-line chunked subtitle (mt-64)
-│   │   └── scenes/
-│   │       ├── Scene1Hook.tsx
-│   │       ├── Scene2Problem.tsx
-│   │       ├── Scene3Container.tsx
-│   │       ├── Scene4ImageDockerfile.tsx
-│   │       ├── Scene5Benefits.tsx
-│   │       └── Scene6Outro.tsx
-│   ├── Root.tsx             # Remotion Composition Registration
-│   └── index.css            # TailwindCSS styles
-└── remotion.config.ts       # Remotion bundle & render config
+│   ├── sfx/              # SfxTrack component
+│   ├── <VideoName>/      # One folder per video
+│   └── Root.tsx          # Registers the videos
+└── remotion.config.ts
 ```
 
----
+Renders and research data go in `out/`, which is not tracked by git.
 
-## 💬 Community & More Video Templates
+## 9. Troubleshooting
 
-### 🎬 Check out other video generation templates:
-- Auto Video Generator from Article/URL: 🔗 [github.com/Cuongyd196/auto-video-gen](https://github.com/Cuongyd196/auto-video-gen)
-- Knowledge Comparison Video Generator: 🔗 [github.com/Cuongyd196/auto-compare-video](https://github.com/Cuongyd196/auto-compare-video)
+| Problem | Cause and fix |
+| :--- | :--- |
+| Edge TTS returns `403` | The Edge server refused the request. Try another network, or switch to `TTS_PROVIDER=cit`. |
+| Cannot connect to CIT Voice Studio | Open the app, then check `CIT_TTS_BASE_URL`. |
+| `400 Voice not found` | Wrong voice name. Names are accent-sensitive, so check `CIT_TTS_VOICE`. |
+| Edited a line but the voice did not change | The old audio file is being reused. Delete that scene's file and generate it again. |
+| A word is mispronounced or repeated | Rewrite the line to drop that word from the narration, and keep it on screen. This often happens with English names followed by a number. |
+| `audioData.ts` is missing | Create the `src/<VideoName>/` folder before running the voiceover script. |
 
-### 🤝 Join the community:
-We have community groups for discussing AI Video Creation.  
-For any issues regarding open-source repos, feel free to ask for support!
+## 10. Responsible Use
 
-- 👥 Facebook Group: [facebook.com/groups/1010029065373486](https://www.facebook.com/groups/1010029065373486/)
-- 👥 Zalo Group: [zalo.me/g/8bfeotyh5ewtkzxmp5gt](https://zalo.me/g/8bfeotyh5ewtkzxmp5gt)
+- **Check before you publish:** AI can get facts wrong or mispronounce words. You are responsible for what you publish.
+- **Voices:** only clone your own voice or one you have permission to use, and disclose AI voices that imitate a real person.
+- **Third-party content:** check your rights before adding someone else's logo, images or product screenshots to a video.
 
-⭐ **If you find this useful, please give this repo a star on GitHub 🌟**
+## 11. Community
 
----
+**Author:** [Cuong IT (Cuongyd196)](https://www.facebook.com/cuongit96/) · [TikTok](https://www.tiktok.com/@cuongit96) · [Facebook Reels](https://www.facebook.com/cuongit96/reels/)
 
-## 📄 License
+**Talk about making videos with AI:** [Facebook Group](https://www.facebook.com/groups/1010029065373486/) · [Zalo Group](https://zalo.me/g/8bfeotyh5ewtkzxmp5gt)
 
-This template's code is released under the [MIT License](LICENSE). MIT covers only the template's own code. These parts keep their own licenses:
+**Related projects:**
 
-- **Remotion**: see the notice below.
-- **Be Vietnam Pro font** in `public/fonts/`: SIL OFL 1.1, see [OFL.txt](public/fonts/OFL.txt).
+- [auto-video-gen](https://github.com/Cuongyd196/auto-video-gen): creates videos from a link or article.
+- [auto-compare-video](https://github.com/Cuongyd196/auto-compare-video): creates knowledge comparison videos.
+- [cit-voice-studio](https://github.com/Cuongyd196/cit-voice-studio): turns Vietnamese text into speech on your own machine.
 
-> [!IMPORTANT]
-> Be aware of that Remotion has a special license and requires obtaining a company license in some cases. Read the [LICENSE](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md) page for more information.
+If you find this useful, please give the repo a ⭐ on GitHub.
+
+## 12. License
+
+The template's code is released under the [MIT License](LICENSE). These parts keep their own licenses:
+
+- **Remotion:** some companies must buy a Company License. See the [Remotion LICENSE](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md) for details.
+- **Be Vietnam Pro font:** SIL OFL 1.1, see [public/fonts/OFL.txt](public/fonts/OFL.txt).
+
+The files in `public/sfx/` are synthesized by `scripts/generate-sfx.ts`.
