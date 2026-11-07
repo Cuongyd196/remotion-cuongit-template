@@ -2,7 +2,7 @@
 
 # Remotion Short Video Skills
 
-**Bộ skill giúp AI agent tạo video dọc 9:16 về công nghệ: giải thích chủ đề, giới thiệu GitHub repo và so sánh hai lựa chọn.**
+**Bộ skill giúp AI agent tạo video dọc 9:16 về công nghệ: giải thích chủ đề, giới thiệu GitHub repo, so sánh hai lựa chọn và làm video từ nội dung có sẵn.**
 
 [![Remotion](https://img.shields.io/badge/Remotion-v4-blue?style=for-the-badge&logo=react)](https://www.remotion.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
@@ -11,9 +11,10 @@
 
 **Tiếng Việt** · [English](README_ENG.md)
 
-<a href="#remotion-topic-explainer"><img src="assets/skill-topic-explainer.jpg" alt="remotion-topic-explainer: giải thích một chủ đề công nghệ" width="32%" /></a>
-<a href="#repo-to-video"><img src="assets/skill-repo-to-video.jpg" alt="repo-to-video: giới thiệu một GitHub repo" width="32%" /></a>
-<a href="#comparison-video"><img src="assets/skill-comparison-video.jpg" alt="comparison-video: so sánh hai lựa chọn" width="32%" /></a>
+<a href="#remotion-topic-explainer"><img src="assets/skill-topic-explainer.jpg" alt="remotion-topic-explainer: giải thích một chủ đề công nghệ" width="24%" /></a>
+<a href="#repo-to-video"><img src="assets/skill-repo-to-video.jpg" alt="repo-to-video: giới thiệu một GitHub repo" width="24%" /></a>
+<a href="#comparison-video"><img src="assets/skill-comparison-video.jpg" alt="comparison-video: so sánh hai lựa chọn" width="24%" /></a>
+<a href="#content-to-video"><img src="assets/skill-content-to-video.jpg" alt="content-to-video: làm video từ URL, file hoặc kịch bản" width="24%" /></a>
 
 [Xem video mẫu trên TikTok](https://www.tiktok.com/@cuongit96/video/7680218859495804180) · [Xem trên Facebook Reels](https://facebook.com/reel/27974855735519825)
 
@@ -37,13 +38,12 @@
 
 ## 1. Tính năng
 
-- **Ba skill độc lập:** mỗi skill dùng riêng được, xoá skill này không ảnh hưởng tới skill khác.
+- **Bốn skill độc lập:** mỗi skill dùng riêng được, xoá skill này không ảnh hưởng tới skill khác.
 - **Video bằng code:** dựng hình, chuyển động và bố cục bằng React và Remotion, nên dễ sửa và dùng lại.
 - **Hai lựa chọn giọng đọc:** Edge TTS (online, miễn phí) hoặc CIT Voice Studio (offline, giọng tiếng Việt).
 - **Thời lượng theo giọng đọc:** script đo độ dài từng file audio rồi tính số frame cho từng cảnh.
 - **Hiệu ứng âm thanh sẵn dùng:** tổng hợp bằng code, tự tránh chồng tiếng khi các âm quá gần nhau.
 - **Thiết kế cho điện thoại:** khổ 1080x1920, 30fps, phụ đề một dòng, frame đầu đủ nội dung để làm thumbnail.
-- **Thông tin có nguồn:** `repo-to-video` và `comparison-video` lập bảng dữ kiện kèm nguồn trước khi viết kịch bản.
 
 ## 2. Bắt đầu nhanh
 
@@ -97,6 +97,7 @@ Mở [http://localhost:3000](http://localhost:3000) để xem video, rồi nghe 
 | `remotion-topic-explainer` | Giải thích một chủ đề công nghệ | Tên chủ đề | Video 50-60s, 6 cảnh |
 | `repo-to-video` | Giới thiệu một GitHub repo | Link GitHub hoặc `owner/repo` | Video 50-60s kèm ảnh chụp repo và bảng dữ kiện |
 | `comparison-video` | So sánh hai lựa chọn | `A vs B` | Video 50-60s, có kết luận chọn bên nào khi nào, kèm bảng dữ kiện |
+| `content-to-video` | Làm video từ nội dung có sẵn | URL, file `.txt` hoặc kịch bản dán | Video 50-60s có ghi nguồn, kèm bảng dữ kiện nếu là bài viết |
 
 ### Cách gọi skill
 
@@ -137,6 +138,20 @@ Kịch bản gồm 6 cảnh: Hook, Vấn đề, Giải pháp, Quy trình, Lợi 
 - Ưu tiên tài liệu chính thức, không tự đặt số liệu.
 - Hai bên có thời lượng và bố cục tương đương. Bên đang được nhắc sẽ sáng, bên còn lại mờ đi.
 - Kết luận theo điều kiện: "Chọn A khi..., chọn B khi...". Nếu hai bên bổ trợ nhau, video sẽ nói rõ và so sánh theo vai trò.
+
+### `content-to-video`
+
+```text
+/content-to-video https://example.com/bai-viet
+/content-to-video D:\noi-dung\bai-viet.txt
+/content-to-video <dán kịch bản vào đây>
+```
+
+- URL hoặc bài viết: tóm tắt bằng lời mới, ghi nguồn trong video, mỗi câu thoại có câu trích tương ứng.
+- Kịch bản dán: giữ nguyên từng chữ, chỉ chia cảnh và chọn hình.
+
+> [!WARNING]
+> **Lưu ý bản quyền:** tin tức, bài báo và nội dung của người khác thường có bản quyền. Hãy nghiên cứu kỹ điều khoản của trang, quyền sử dụng và độ chính xác của thông tin trước khi làm và đăng video. Ghi nguồn không thay thế sự cho phép. Skill sẽ nhắc điều này trước khi bắt đầu, nhưng trách nhiệm kiểm tra thuộc về bạn.
 
 ## 4. Giọng đọc
 
@@ -209,6 +224,7 @@ npx remotion render DevVsDevops out/DevVsDevops.mp4
 | `DevVsDevops` | `comparison-video` | So sánh Dev và DevOps |
 | `CitVoiceStudioRepo` | `repo-to-video` | Giới thiệu repo CIT Voice Studio |
 | `DockerExplainer` | `remotion-topic-explainer` | Giải thích Docker |
+| `EmbedGoogleDriveVideo` | `content-to-video` | Hướng dẫn nhúng video Google Drive vào website, từ một bài trên blog của tác giả |
 
 ## 8. Cấu trúc dự án
 
@@ -220,6 +236,7 @@ remotion-cuongit-template/
 ├── public/
 │   ├── audio/            # Giọng đọc của từng video
 │   ├── fonts/            # Font Be Vietnam Pro và giấy phép
+│   ├── content/          # Ảnh trang nguồn của video làm từ bài viết
 │   ├── repos/            # Ảnh dùng cho video giới thiệu repo
 │   └── sfx/              # Hiệu ứng âm thanh
 ├── scripts/
@@ -249,7 +266,7 @@ Kết quả render và dữ liệu nghiên cứu nằm trong `out/`, thư mục 
 
 - **Kiểm tra trước khi đăng:** AI có thể viết sai thông tin hoặc đọc sai từ. Bạn chịu trách nhiệm về nội dung mình đăng.
 - **Giọng nói:** chỉ nhân bản giọng của bạn hoặc giọng đã được cho phép, và ghi rõ khi dùng giọng AI mô phỏng người thật.
-- **Nội dung của bên thứ ba:** kiểm tra quyền sử dụng trước khi đưa logo, ảnh hay ảnh chụp sản phẩm của người khác vào video.
+- **Nội dung của bên thứ ba:** kiểm tra quyền sử dụng trước khi đưa logo, ảnh, bài viết hay ảnh chụp sản phẩm của người khác vào video.
 
 ## 11. Cộng đồng
 

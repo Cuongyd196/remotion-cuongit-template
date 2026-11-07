@@ -2,7 +2,7 @@
 
 # Remotion Short Video Skills
 
-**Skills that let AI agents create 9:16 vertical tech videos: explain a topic, showcase a GitHub repo, or compare two options.**
+**Skills that let AI agents create 9:16 vertical tech videos: explain a topic, showcase a GitHub repo, compare two options, or turn existing content into a video.**
 
 [![Remotion](https://img.shields.io/badge/Remotion-v4-blue?style=for-the-badge&logo=react)](https://www.remotion.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
@@ -11,9 +11,10 @@
 
 [Tiếng Việt](README.md) · **English**
 
-<a href="#remotion-topic-explainer"><img src="assets/skill-topic-explainer-en.jpg" alt="remotion-topic-explainer: explain a tech topic" width="32%" /></a>
-<a href="#repo-to-video"><img src="assets/skill-repo-to-video-en.jpg" alt="repo-to-video: showcase a GitHub repo" width="32%" /></a>
-<a href="#comparison-video"><img src="assets/skill-comparison-video-en.jpg" alt="comparison-video: compare two options" width="32%" /></a>
+<a href="#remotion-topic-explainer"><img src="assets/skill-topic-explainer-en.jpg" alt="remotion-topic-explainer: explain a tech topic" width="24%" /></a>
+<a href="#repo-to-video"><img src="assets/skill-repo-to-video-en.jpg" alt="repo-to-video: showcase a GitHub repo" width="24%" /></a>
+<a href="#comparison-video"><img src="assets/skill-comparison-video-en.jpg" alt="comparison-video: compare two options" width="24%" /></a>
+<a href="#content-to-video"><img src="assets/skill-content-to-video-en.jpg" alt="content-to-video: make a video from a URL, file or script" width="24%" /></a>
 
 The sample videos are in Vietnamese.
 
@@ -39,13 +40,12 @@ The sample videos are in Vietnamese.
 
 ## 1. Features
 
-- **Three independent skills:** each works on its own, and removing one does not affect the others.
+- **Four independent skills:** each works on its own, and removing one does not affect the others.
 - **Video as code:** visuals, motion and layout are built with React and Remotion, so they are easy to edit and reuse.
 - **Two voice options:** Edge TTS (online, free) or CIT Voice Studio (offline, Vietnamese voices).
 - **Timing driven by the voice:** a script measures each audio file and calculates the frames for each scene.
 - **Ready-to-use sound effects:** synthesized in code, and spaced automatically so they do not clash.
 - **Built for phones:** 1080x1920 at 30fps, single-line captions, and a complete first frame that works as a thumbnail.
-- **Sourced information:** `repo-to-video` and `comparison-video` build a fact sheet with sources before writing the script.
 
 ## 2. Quickstart
 
@@ -99,6 +99,7 @@ Open [http://localhost:3000](http://localhost:3000) to watch the video, then lis
 | `remotion-topic-explainer` | Explain a tech topic | Topic name | 50-60s video with 6 scenes |
 | `repo-to-video` | Showcase a GitHub repo | GitHub link or `owner/repo` | 50-60s video with a repo screenshot and a fact sheet |
 | `comparison-video` | Compare two options | `A vs B` | 50-60s video that ends with when to pick each one, plus a fact sheet |
+| `content-to-video` | Turn existing content into a video | URL, `.txt` file or pasted script | 50-60s video that credits the source, plus a fact sheet for articles |
 
 ### Calling a skill
 
@@ -139,6 +140,20 @@ The script has 6 scenes: Hook, Problem, Solution, Workflow, Benefits, and Outro 
 - Prefers official documentation and never makes up numbers.
 - Gives both sides similar time and the same layout. The side being discussed lights up while the other dims.
 - Concludes by condition: "Pick A when..., pick B when...". If the two complement each other, the video says so and compares their roles.
+
+### `content-to-video`
+
+```text
+/content-to-video https://example.com/article
+/content-to-video D:\content\article.txt
+/content-to-video <paste your script here>
+```
+
+- URL or article: summarizes in new words, credits the source in the video, and backs each spoken line with a quote.
+- Pasted script: keeps every word, and only splits it into scenes and picks visuals.
+
+> [!WARNING]
+> **Copyright note:** news, articles and other people's content are usually copyrighted. Research the site's terms, your right to use the content, and its accuracy before you make and publish a video. Crediting the source does not replace permission. The skill reminds you before it starts, but checking is your responsibility.
 
 ## 4. Voiceover
 
@@ -211,6 +226,7 @@ npx remotion render DevVsDevops out/DevVsDevops.mp4
 | `DevVsDevops` | `comparison-video` | Compares Dev and DevOps |
 | `CitVoiceStudioRepo` | `repo-to-video` | Showcases the CIT Voice Studio repo |
 | `DockerExplainer` | `remotion-topic-explainer` | Explains Docker |
+| `EmbedGoogleDriveVideo` | `content-to-video` | Shows how to embed a Google Drive video in a website, from a post on the author's blog |
 
 ## 8. Project Structure
 
@@ -222,6 +238,7 @@ remotion-cuongit-template/
 ├── public/
 │   ├── audio/            # Voiceover for each video
 │   ├── fonts/            # Be Vietnam Pro font and its license
+│   ├── content/          # Source page images for videos made from articles
 │   ├── repos/            # Images for repo showcase videos
 │   └── sfx/              # Sound effects
 ├── scripts/
@@ -251,7 +268,7 @@ Renders and research data go in `out/`, which is not tracked by git.
 
 - **Check before you publish:** AI can get facts wrong or mispronounce words. You are responsible for what you publish.
 - **Voices:** only clone your own voice or one you have permission to use, and disclose AI voices that imitate a real person.
-- **Third-party content:** check your rights before adding someone else's logo, images or product screenshots to a video.
+- **Third-party content:** check your rights before adding someone else's logo, images, articles or product screenshots to a video.
 
 ## 11. Community
 
