@@ -173,6 +173,17 @@ $remotion-topic-explainer Docker
 $repo-to-video remotion-dev/remotion
 ```
 
+### Làm video so sánh hai lựa chọn (`comparison-video`)
+
+Đưa hai lựa chọn cần so sánh, AI sẽ đọc tài liệu chính thức, lập bảng dữ kiện rồi dựng video với kết luận theo từng trường hợp. Skill nằm ở `.claude/skills/comparison-video/` và `.agents/skills/comparison-video/`.
+```bash
+# Claude Code / Claude Extension
+/comparison-video Dev vs DevOps
+
+# Codex
+$comparison-video Dev vs DevOps
+```
+
 ---
 
 ### Quy trình tự động hóa của AI Agent:
@@ -257,7 +268,10 @@ Với các repo mình công khai, có vướng mắc mình sẽ giải đáp cho
 
 ## 📄 Giấy phép (License)
 
-Mã nguồn template này được chia sẻ miễn phí cho mục đích học tập và phát triển cộng đồng. Tuy nhiên, dự án sử dụng framework **Remotion**.
+Mã nguồn template này phát hành theo [giấy phép MIT](LICENSE). MIT chỉ áp dụng cho mã nguồn của template, không áp dụng cho các phần sau, vốn theo giấy phép riêng:
+
+- **Remotion**: xem lưu ý bên dưới.
+- **Font Be Vietnam Pro** trong `public/fonts/`: giấy phép SIL OFL 1.1, xem [OFL.txt](public/fonts/OFL.txt).
 
 > [!IMPORTANT]
 > **Lưu ý về Giấy phép của Remotion:**  

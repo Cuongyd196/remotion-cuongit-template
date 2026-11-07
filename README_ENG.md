@@ -171,6 +171,17 @@ Give it a repo link and the AI reads the repo's data from GitHub, builds a fact 
 $repo-to-video remotion-dev/remotion
 ```
 
+### Compare two options (`comparison-video`)
+
+Name two options and the AI reads their official docs, builds a fact sheet, then produces a video that ends with when to pick each one. The skill lives in `.claude/skills/comparison-video/` and `.agents/skills/comparison-video/`.
+```bash
+# Claude Code / Claude Extension
+/comparison-video Dev vs DevOps
+
+# Codex
+$comparison-video Dev vs DevOps
+```
+
 ---
 
 ### Automated Agent Workflow:
@@ -255,7 +266,10 @@ For any issues regarding open-source repos, feel free to ask for support!
 
 ## 📄 License
 
-This template code is open-source and free to use for the community. However, this project is built using the **Remotion** framework.
+This template's code is released under the [MIT License](LICENSE). MIT covers only the template's own code. These parts keep their own licenses:
+
+- **Remotion**: see the notice below.
+- **Be Vietnam Pro font** in `public/fonts/`: SIL OFL 1.1, see [OFL.txt](public/fonts/OFL.txt).
 
 > [!IMPORTANT]
 > Be aware of that Remotion has a special license and requires obtaining a company license in some cases. Read the [LICENSE](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md) page for more information.

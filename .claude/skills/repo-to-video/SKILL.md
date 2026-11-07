@@ -7,7 +7,7 @@ description: Dùng khi người dùng đưa link GitHub hoặc owner/repo và mu
 
 Tạo video dọc 50-60s (1080x1920, 30fps) giới thiệu một GitHub repo bằng Remotion. Mọi thông tin trong video phải truy được về dữ liệu của repo.
 
-Skill này tự đủ, chỉ cần `scripts/generate-tts.ts`, `.env` và `public/fonts/` có sẵn trong repo template.
+Skill này tự đủ, chỉ cần `scripts/generate-tts.ts`, `.env`, `public/fonts/`, `public/sfx/` và `src/sfx/` có sẵn trong repo template.
 
 Không dùng skill này cho video về một chủ đề chung, không gắn với repo cụ thể. Repo private hoặc không có trên GitHub: dừng lại và hỏi người dùng nguồn thông tin khác.
 
@@ -104,7 +104,7 @@ generateTopicVoices("<TopicName>", scenes).catch((error) => {
 });
 ```
 
-- Audio và `manifest.json` nằm ở `public/audio/<TopicName>/`. Script chỉ ghi manifest, nên tự tạo `src/<TopicName>/audioData.ts` từ manifest, dạng `export const audioManifest = { scenes: [{ id, text, audioPath, durationInFrames }] };`.
+- Audio và `manifest.json` nằm ở `public/audio/<TopicName>/`. `src/<TopicName>/audioData.ts` cũng được sinh tự động, nhưng chỉ khi thư mục `src/<TopicName>/` đã tồn tại, nên tạo thư mục này trước khi chạy script.
 - File audio đã có sẽ được dùng lại. Sửa lời thoại thì xoá file audio của cảnh đó trước khi sinh lại.
 - Tổng thời lượng dưới 50s: viết dài thêm lời thoại rồi sinh lại.
 - Người dùng báo một từ bị đọc lặp hoặc đọc sai: đổi câu để bỏ từ đó khỏi lời thoại, vẫn giữ trên màn hình. Tên tiếng Anh kèm số (`Supertonic 3`) hay gặp lỗi này với `cit`.
@@ -179,6 +179,19 @@ Hình ảnh và chữ:
 - Khung terminal: font mono tối thiểu 38px, tối đa khoảng 40 ký tự một dòng. Lệnh dài thì xuống dòng ở dấu cách, không thu nhỏ chữ.
 - URL và tên repo luôn nằm trên một dòng (`whiteSpace: "nowrap"`). Quá dài thì giảm cỡ chữ cho vừa.
 - `nowrap` không tự co chữ. Be Vietnam Pro Black rộng khoảng 0,6 lần cỡ chữ mỗi ký tự, vùng nội dung rộng 904px: tiêu đề 16 ký tự dùng tối đa 104px. Mở ảnh kiểm tra mép phải.
+
+Hiệu ứng âm thanh: dùng `<SfxTrack cues={...} />` từ `src/sfx/SfxTrack.tsx`, đặt trong component chính. File âm thanh ở `public/sfx/`, tạo lại bằng `npx tsx scripts/generate-sfx.ts`.
+
+| Lúc nào | Âm thanh |
+| :--- | :--- |
+| Đầu mỗi cảnh, sớm 3 frame để rơi vào khoảng lặng trước câu mới (cảnh 1 ở frame 0) | `mallet` |
+| Thẻ hoặc mục xuất hiện | `pop` hoặc `tick` |
+| Điểm nhấn, kết luận | `ding` |
+| Lời kêu gọi theo dõi | `chime` |
+
+- `frame` của mỗi cue là số frame tính từ đầu video, khớp với lúc thành phần đó xuất hiện.
+- Không cần tự tránh chồng tiếng: `SfxTrack` tự bỏ cue cách cue trước dưới 0,4s, và giảm âm lượng khi một âm thanh lặp ngay sau chính nó.
+- Không tải âm thanh từ myinstants hay trang không rõ giấy phép. Cần âm mới thì thêm vào `scripts/generate-sfx.ts`.
 
 Đăng ký trong `src/Root.tsx`:
 

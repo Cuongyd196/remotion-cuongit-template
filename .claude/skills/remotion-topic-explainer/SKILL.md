@@ -70,9 +70,9 @@ Khi nhận lệnh: *"Tạo video giải thích về [Chủ đề X]"*, Claude th
 Soạn 6 câu thoại súc tích, tự nhiên, đánh trúng tâm lý người xem (mỗi câu 15-25 từ).
 
 ### Bước 2: Sinh Voiceover (provider theo `TTS_PROVIDER`)
-Tạo script `scripts/generate-<topic>-audio.ts` gọi `generateTopicVoices` từ `generate-tts.ts`, chạy `npx tsx scripts/generate-<topic>-audio.ts`. Audio lưu vào `public/audio/<TopicName>/` (`.mp3` với edge, `.wav` với cit), `manifest.json` và `src/<TopicName>/audioData.ts` sinh tự động:
+Tạo script `scripts/generate-<topic>-audio.ts` gọi `generateTopicVoices` từ `generate-tts.ts`, chạy `npx tsx scripts/generate-<topic>-audio.ts`. Audio lưu vào `public/audio/<TopicName>/` (`.mp3` với edge, `.wav` với cit), `manifest.json` sinh tự động. `src/<TopicName>/audioData.ts` chỉ được sinh khi thư mục `src/<TopicName>/` đã tồn tại, nên tạo thư mục này trước khi chạy script:
 ```typescript
-import { generateTopicVoices } from "./scripts/generate-tts";
+import { generateTopicVoices } from "./generate-tts";
 
 const scenes = [
   { id: "scene1_hook", text: "..." },
@@ -83,7 +83,10 @@ const scenes = [
   { id: "scene6_outro", text: "..." },
 ];
 
-await generateTopicVoices("<TopicName>", scenes);
+generateTopicVoices("<TopicName>", scenes).catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
 ```
 - Tuỳ chọn mỗi cảnh: `voice` (giọng của provider đang chọn), `rate`/`pitch`/`volume` (chỉ edge), `speed` 0.5-2.0 (chỉ cit).
 - File đã tồn tại được dùng lại (cache). Muốn sinh lại sau khi sửa lời thoại hoặc đổi giọng, xoá file audio tương ứng trước.
@@ -112,11 +115,24 @@ src/<TopicName>/
 2. **Clamped Interpolation**: Luôn có `{ extrapolateLeft: "clamp", extrapolateRight: "clamp" }`.
 3. **Căn giữa nội dung**: `<AbsoluteFill className="flex flex-col items-center justify-center px-10 text-white">`.
 4. **Phụ đề**: Đặt `<SubtitleBox text="..." durationInFrames={d} className="mt-64" />` ngay dưới khối trung tâm.
-5. **Thời lượng cảnh**: `const d1 = audioManifest.scenes[0].durationInFrames + 3;` (Buffer snappy `+3 frames`).
+5. **Thời lượng cảnh**: `const d1 = audioManifest.scenes[0].durationInFrames - 10 + 3;` (Buffer snappy `+3 frames`). Giá trị trong manifest đã gồm 10 frame đệm, nên trừ đi trước khi cộng buffer.
 6. **Đường dẫn audio**: Luôn dùng `staticFile(audioManifest.scenes[i].audioPath)`, KHÔNG hardcode đuôi `.mp3` (provider cit xuất `.wav`).
 
+Hiệu ứng âm thanh: dùng `<SfxTrack cues={...} />` từ `src/sfx/SfxTrack.tsx`, đặt trong component chính. File âm thanh ở `public/sfx/`, tạo lại bằng `npx tsx scripts/generate-sfx.ts`.
+
+| Lúc nào | Âm thanh |
+| :--- | :--- |
+| Đầu mỗi cảnh, sớm 3 frame để rơi vào khoảng lặng trước câu mới (cảnh 1 ở frame 0) | `mallet` |
+| Thẻ hoặc mục xuất hiện | `pop` hoặc `tick` |
+| Điểm nhấn, kết luận | `ding` |
+| Lời kêu gọi theo dõi | `chime` |
+
+- `frame` của mỗi cue là số frame tính từ đầu video, khớp với lúc thành phần đó xuất hiện.
+- Không cần tự tránh chồng tiếng: `SfxTrack` tự bỏ cue cách cue trước dưới 0,4s, và giảm âm lượng khi một âm thanh lặp ngay sau chính nó.
+- Không tải âm thanh từ myinstants hay trang không rõ giấy phép. Cần âm mới thì thêm vào `scripts/generate-sfx.ts`.
+
 ### Bước 5: Đăng ký Composition vào `src/Root.tsx`
-Thêm `<Composition>` vào [src/Root.tsx](file:///d:/cuongit/25-26/shortvideo/public-git/remotion-cuongit-template/src/Root.tsx) với `width={1080}`, `height={1920}`, `fps={30}` và tổng `durationInFrames`.
+Thêm `<Composition>` vào `src/Root.tsx` với `width={1080}`, `height={1920}`, `fps={30}` và tổng `durationInFrames`.
 
 ---
 

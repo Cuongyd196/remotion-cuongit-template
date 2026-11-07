@@ -56,10 +56,10 @@ CIT_TTS_SPEED=1.1                    # 0.5 - 2.0
 - Lỗi `400 Voice not found` = sai tên giọng (phân biệt dấu). Kiểm tra `CIT_TTS_VOICE`.
 
 ### 2.2 Quy trình sinh file Audio
-Khi nhận chủ đề, tạo file kịch bản voiceover và chạy script `scripts/generate-tts.ts` để sinh audio:
+Khi nhận chủ đề, tạo thư mục `src/<TopicName>/` trước, vì `src/<TopicName>/audioData.ts` chỉ được sinh khi thư mục này đã tồn tại. Sau đó tạo `scripts/generate-<topic>-audio.ts` và chạy để sinh audio:
 
 ```typescript
-import { generateTopicVoices } from "../../scripts/generate-tts";
+import { generateTopicVoices } from "./generate-tts";
 
 const scenes = [
   {
@@ -88,7 +88,10 @@ const scenes = [
   },
 ];
 
-await generateTopicVoices("DockerShort", scenes);
+generateTopicVoices("DockerShort", scenes).catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
 ```
 
 File âm thanh sẽ được lưu tự động vào `public/audio/<TopicName>/<sceneId>.<ext>` (`.mp3` với edge, `.wav` với cit) kèm file `manifest.json` ghi lại chính xác số frame (`durationInFrames`) và `audioPath` cho từng phân cảnh.
@@ -158,8 +161,9 @@ import { Audio, staticFile, Sequence } from "remotion";
 
 ```tsx
 // Ví dụ tính thời lượng các cảnh trong Series
-const d1 = audioManifest.scenes[0].durationInFrames + 3;
-const d2 = audioManifest.scenes[1].durationInFrames + 3;
+// Giá trị trong manifest đã gồm 10 frame đệm, nên trừ đi trước khi cộng buffer.
+const d1 = audioManifest.scenes[0].durationInFrames - 10 + 3;
+const d2 = audioManifest.scenes[1].durationInFrames - 10 + 3;
 // ...
 ```
 
@@ -192,7 +196,7 @@ Khi nhận được yêu cầu: *"Tạo video giải thích về [Chủ đề X]
 
 ### Bước 2: Sinh Giọng Đọc (TTS Generation)
 1. Đọc `TTS_PROVIDER` trong `.env` để biết đang dùng edge hay cit.
-2. Tạo script `scripts/generate-<topic>-audio.ts` gọi `generateTopicVoices`, chạy `npx tsx scripts/generate-<topic>-audio.ts`.
+2. Tạo thư mục `src/<TopicName>/`, rồi tạo script `scripts/generate-<topic>-audio.ts` gọi `generateTopicVoices`, chạy `npx tsx scripts/generate-<topic>-audio.ts`.
 3. Lấy danh sách thời lượng frame thực tế từ `manifest.json` / `src/<TopicName>/audioData.ts`.
 
 ### Bước 3: Tạo Thư mục Code `src/<TopicName>/`
@@ -210,6 +214,19 @@ src/<TopicName>/
     ├── Scene5Impact.tsx
     └── Scene6Outro.tsx
 ```
+
+Hiệu ứng âm thanh: dùng `<SfxTrack cues={...} />` từ `src/sfx/SfxTrack.tsx`, đặt trong component chính. File âm thanh ở `public/sfx/`, tạo lại bằng `npx tsx scripts/generate-sfx.ts`.
+
+| Lúc nào | Âm thanh |
+| :--- | :--- |
+| Đầu mỗi cảnh, sớm 3 frame để rơi vào khoảng lặng trước câu mới (cảnh 1 ở frame 0) | `mallet` |
+| Thẻ hoặc mục xuất hiện | `pop` hoặc `tick` |
+| Điểm nhấn, kết luận | `ding` |
+| Lời kêu gọi theo dõi | `chime` |
+
+- `frame` của mỗi cue là số frame tính từ đầu video, khớp với lúc thành phần đó xuất hiện.
+- Không cần tự tránh chồng tiếng: `SfxTrack` tự bỏ cue cách cue trước dưới 0,4s, và giảm âm lượng khi một âm thanh lặp ngay sau chính nó.
+- Không tải âm thanh từ myinstants hay trang không rõ giấy phép. Cần âm mới thì thêm vào `scripts/generate-sfx.ts`.
 
 ### Bước 4: Đăng ký Composition vào `src/Root.tsx`
 Thêm Composition mới vào `src/Root.tsx`:
