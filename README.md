@@ -162,6 +162,17 @@ $remotion-topic-explainer Docker
 **3. Bằng câu lệnh tự nhiên (Natural Language Prompt):**
 > *"Tạo video ngắn 50-60s giải thích về [Chủ đề của bạn: Docker, Redis, Kubernetes, Git Rebase, WebSocket...]"*
 
+### Làm video giới thiệu GitHub repo (`repo-to-video`)
+
+Đưa link repo, AI sẽ lấy thông tin từ GitHub, lập bảng dữ kiện rồi dựng video. Skill nằm ở `.claude/skills/repo-to-video/` và `.agents/skills/repo-to-video/`.
+```bash
+# Claude Code / Claude Extension
+/repo-to-video https://github.com/remotion-dev/remotion
+
+# Codex
+$repo-to-video remotion-dev/remotion
+```
+
 ---
 
 ### Quy trình tự động hóa của AI Agent:

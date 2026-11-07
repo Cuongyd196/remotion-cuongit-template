@@ -160,6 +160,17 @@ $remotion-topic-explainer Docker
 **3. Natural Language Prompt:**
 > *"Create a 50-60s vertical explainer video about [Your Topic: e.g. Docker, Redis, Kubernetes, Git Rebase, WebSocket]"*
 
+### Showcase a GitHub repo (`repo-to-video`)
+
+Give it a repo link and the AI reads the repo's data from GitHub, builds a fact sheet, then produces the video. The skill lives in `.claude/skills/repo-to-video/` and `.agents/skills/repo-to-video/`.
+```bash
+# Claude Code / Claude Extension
+/repo-to-video https://github.com/remotion-dev/remotion
+
+# Codex
+$repo-to-video remotion-dev/remotion
+```
+
 ---
 
 ### Automated Agent Workflow:
