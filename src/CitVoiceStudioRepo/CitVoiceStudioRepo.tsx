@@ -1,6 +1,6 @@
 import React from "react";
 import { AbsoluteFill, Series, useCurrentFrame } from "remotion";
-import { useVietnameseFont, vietnameseFontFamily } from "../DevOpsSysadmin/useVietnameseFont";
+import { useVietnameseFont, vietnameseFontFamily } from "./useVietnameseFont";
 import { audioManifest } from "./audioData";
 import { BrandHeader } from "./components/BrandHeader";
 import { SceneProps } from "./components/SceneShell";

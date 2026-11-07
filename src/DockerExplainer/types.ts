@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export const dockerExplainerSchema = z.object({
+  channelName: z.string(),
   title: z.string().default("Docker là gì?"),
   subtitle: z.string().default("Giải thích trong 60 giây"),
 });

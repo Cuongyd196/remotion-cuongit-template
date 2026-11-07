@@ -2,11 +2,11 @@ import React from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 
 interface BrandHeaderProps {
-  channelName?: string;
+  channelName: string;
 }
 
 export const BrandHeader: React.FC<BrandHeaderProps> = ({
-  channelName = "CƯỜNG IT",
+  channelName,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();

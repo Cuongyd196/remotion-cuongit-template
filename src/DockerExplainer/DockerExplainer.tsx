@@ -16,7 +16,7 @@ import { Scene5Benefits } from "./scenes/Scene5Benefits";
 import { Scene6Outro } from "./scenes/Scene6Outro";
 import { BrandHeader } from "./components/BrandHeader";
 
-export const DockerExplainer: React.FC<DockerExplainerProps> = () => {
+export const DockerExplainer: React.FC<DockerExplainerProps> = ({ channelName }) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
 
@@ -51,7 +51,7 @@ export const DockerExplainer: React.FC<DockerExplainerProps> = () => {
       className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-black font-sans text-white select-none"
     >
       {/* Top Center Channel Brand Header (Safely below platform search bar) */}
-      <BrandHeader channelName="CƯỜNG IT" />
+      <BrandHeader channelName={channelName} />
 
       {/* Background Animated Subtle Glows */}
       <div className="absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-sky-600/15 blur-[140px]" />

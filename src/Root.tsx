@@ -2,8 +2,6 @@ import "./index.css";
 import { Composition } from "remotion";
 import { DockerExplainer } from "./DockerExplainer/DockerExplainer";
 import { dockerExplainerSchema } from "./DockerExplainer/types";
-import { DevOpsSysadmin, devOpsSysadminDuration } from "./DevOpsSysadmin/DevOpsSysadmin";
-import { devOpsSysadminSchema } from "./DevOpsSysadmin/types";
 import { CitVoiceStudioRepo, citVoiceStudioRepoDuration } from "./CitVoiceStudioRepo/CitVoiceStudioRepo";
 import { citVoiceStudioRepoSchema } from "./CitVoiceStudioRepo/types";
 import { DevVsDevops, devVsDevopsDuration } from "./DevVsDevops/DevVsDevops";
@@ -14,7 +12,6 @@ export const RemotionRoot: React.FC = () => {
     <>
       <Composition id="DevVsDevops" component={DevVsDevops} durationInFrames={devVsDevopsDuration} fps={30} width={1080} height={1920} schema={devVsDevopsSchema} defaultProps={{ channelName: process.env.CHANNEL_NAME || "CƯỜNG IT" }} />
       <Composition id="CitVoiceStudioRepo" component={CitVoiceStudioRepo} durationInFrames={citVoiceStudioRepoDuration} fps={30} width={1080} height={1920} schema={citVoiceStudioRepoSchema} defaultProps={{ channelName: process.env.CHANNEL_NAME || "CƯỜNG IT" }} />
-      <Composition id="DevOpsSysadmin" component={DevOpsSysadmin} durationInFrames={devOpsSysadminDuration} fps={30} width={1080} height={1920} schema={devOpsSysadminSchema} defaultProps={{ channelName: process.env.CHANNEL_NAME || "CƯỜNG IT" }} />
       {/* 50s AI Voice Explainer: Docker */}
       <Composition
         id="DockerExplainer"
@@ -25,6 +22,7 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
         schema={dockerExplainerSchema}
         defaultProps={{
+          channelName: process.env.CHANNEL_NAME || "CƯỜNG IT",
           title: "Docker là gì?",
           subtitle: "Giải thích trong 50 giây",
         }}
