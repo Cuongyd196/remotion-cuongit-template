@@ -12,7 +12,6 @@ export const audioManifest = {
       "id": "01_hook",
       "text": "Mới vào nghề công nghệ, nên làm Dev hay DevOps? Hai hướng này không đối đầu nhau, mà cùng làm việc để đưa phần mềm đến người dùng. Cùng xem khác nhau ở đâu nhé.",
       "audioPath": "audio/DevVsDevops/01_hook.wav",
-      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DevVsDevops\\01_hook.wav",
       "sizeBytes": 746256,
       "estimatedDurationSec": 7.77,
       "durationInFrames": 244
@@ -21,7 +20,6 @@ export const audioManifest = {
       "id": "02_core",
       "text": "Khác biệt lớn nhất là trọng tâm. Dev tập trung tạo ra phần mềm. DevOps tập trung đưa phần mềm lên chạy nhanh và ổn định, bằng tự động hóa và hạ tầng.",
       "audioPath": "audio/DevVsDevops/02_core.wav",
-      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DevVsDevops\\02_core.wav",
       "sizeBytes": 695056,
       "estimatedDurationSec": 7.24,
       "durationInFrames": 228
@@ -30,7 +28,6 @@ export const audioManifest = {
       "id": "03_a",
       "text": "Dev là người thiết kế, viết và kiểm thử phần mềm, thường làm theo nhóm. Việc chính là biến yêu cầu thành tính năng. Thách thức là giao đúng hạn, đúng chi phí và ít lỗi.",
       "audioPath": "audio/DevVsDevops/03_a.wav",
-      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DevVsDevops\\03_a.wav",
       "sizeBytes": 775512,
       "estimatedDurationSec": 8.08,
       "durationInFrames": 253
@@ -39,7 +36,6 @@ export const audioManifest = {
       "id": "04_b",
       "text": "DevOps vốn là văn hóa làm việc, nhưng nhiều công ty tuyển vị trí DevOps Engineer. Việc chính là phát hành, hạ tầng và tự động hóa. Thách thức là kỹ năng phải trải rộng cả hai phía.",
       "audioPath": "audio/DevVsDevops/04_b.wav",
-      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DevVsDevops\\04_b.wav",
       "sizeBytes": 870598,
       "estimatedDurationSec": 9.07,
       "durationInFrames": 283
@@ -48,7 +44,6 @@ export const audioManifest = {
       "id": "05_versus",
       "text": "Về trọng tâm, Dev tạo ra phần mềm, DevOps lo phát hành và vận hành. Về việc chính, Dev thiết kế và viết code, DevOps làm hạ tầng và tự động hóa. Về kỹ năng, Dev cần lập trình và kiểm thử, DevOps cần cả code lẫn vận hành.",
       "audioPath": "audio/DevVsDevops/05_versus.wav",
-      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DevVsDevops\\05_versus.wav",
       "sizeBytes": 1141226,
       "estimatedDurationSec": 11.89,
       "durationInFrames": 367
@@ -57,7 +52,6 @@ export const audioManifest = {
       "id": "06_verdict",
       "text": "Chọn Dev khi bạn thích viết code và xây tính năng. Chọn DevOps khi bạn thích hạ tầng, tự động hóa và giữ hệ thống ổn định. Theo dõi Cường IT để xem thêm so sánh nhé!",
       "audioPath": "audio/DevVsDevops/06_verdict.wav",
-      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DevVsDevops\\06_verdict.wav",
       "sizeBytes": 834026,
       "estimatedDurationSec": 8.69,
       "durationInFrames": 271

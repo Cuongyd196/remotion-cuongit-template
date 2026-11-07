@@ -11,7 +11,6 @@ export const audioManifest = {
       "id": "scene1_hook",
       "text": "Bạn có biết Docker thực chất là gì và tại sao mọi lập trình viên đều bắt buộc phải biết nó không?",
       "audioPath": "audio/DockerExplainer/scene1_hook.mp3",
-      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DockerExplainer\\scene1_hook.mp3",
       "sizeBytes": 30816,
       "estimatedDurationSec": 5.14,
       "durationInFrames": 165
@@ -20,7 +19,6 @@ export const audioManifest = {
       "id": "scene2_problem",
       "text": "Trước đây, câu nói 'trên máy tôi vẫn chạy được' luôn là cơn ác mộng khi bàn giao code giữa các môi trường khác nhau.",
       "audioPath": "audio/DockerExplainer/scene2_problem.mp3",
-      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DockerExplainer\\scene2_problem.mp3",
       "sizeBytes": 35280,
       "estimatedDurationSec": 5.88,
       "durationInFrames": 187
@@ -29,7 +27,6 @@ export const audioManifest = {
       "id": "scene3_container",
       "text": "Docker giải quyết triệt để vấn đề này bằng Container: đóng gói code, thư viện và môi trường vào một khối độc lập siêu nhẹ.",
       "audioPath": "audio/DockerExplainer/scene3_container.mp3",
-      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DockerExplainer\\scene3_container.mp3",
       "sizeBytes": 40176,
       "estimatedDurationSec": 6.7,
       "durationInFrames": 211
@@ -38,7 +35,6 @@ export const audioManifest = {
       "id": "scene4_image_dockerfile",
       "text": "Chỉ với một file Dockerfile đơn giản, bạn tạo ra Docker Image và có thể nhân bản hàng nghìn Container giống hệt nhau trong tích tắc.",
       "audioPath": "audio/DockerExplainer/scene4_image_dockerfile.mp3",
-      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DockerExplainer\\scene4_image_dockerfile.mp3",
       "sizeBytes": 41472,
       "estimatedDurationSec": 6.91,
       "durationInFrames": 218
@@ -47,7 +43,6 @@ export const audioManifest = {
       "id": "scene5_benefits",
       "text": "Nhẹ hơn máy ảo gấp 10 lần, tiết kiệm tài nguyên và dễ dàng deploy lên bất kỳ hệ thống đám mây nào như AWS hay GCP.",
       "audioPath": "audio/DockerExplainer/scene5_benefits.mp3",
-      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DockerExplainer\\scene5_benefits.mp3",
       "sizeBytes": 43632,
       "estimatedDurationSec": 7.27,
       "durationInFrames": 229
@@ -56,7 +51,6 @@ export const audioManifest = {
       "id": "scene6_outro",
       "text": "Nắm vững Docker ngay hôm nay để tự tin triển khai mọi dự án. Nhớ thả tim và follow kênh để đón xem video tiếp theo nhé!",
       "audioPath": "audio/DockerExplainer/scene6_outro.mp3",
-      "filePath": "D:\\cuongit\\25-26\\shortvideo\\public-git\\remotion-cuongit-template\\public\\audio\\DockerExplainer\\scene6_outro.mp3",
       "sizeBytes": 46944,
       "estimatedDurationSec": 7.82,
       "durationInFrames": 245

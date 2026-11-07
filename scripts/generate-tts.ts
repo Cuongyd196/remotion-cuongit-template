@@ -24,7 +24,6 @@ export interface GeneratedAudioResult {
   id: string;
   text: string;
   audioPath: string; // relative to public/
-  filePath: string;  // absolute disk path
   sizeBytes: number;
   estimatedDurationSec: number;
   durationInFrames: number; // calculated at 30 fps
@@ -440,7 +439,6 @@ export async function generateTopicVoices(
       id: scene.id,
       text: scene.text,
       audioPath: relativePublicPath,
-      filePath: targetFile,
       sizeBytes,
       estimatedDurationSec: durationSec,
       durationInFrames,
